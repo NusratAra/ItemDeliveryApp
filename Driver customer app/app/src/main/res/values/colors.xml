@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorMagentaDark">#BD2755</color>
+    <color name="colorMagentaLight">#F9E4EB</color>
+    <color name="colorYellowDark">#FFFDBE01</color>
+    <color name="colorYellow">#FFCE06</color>
+    <color name="colorYellowLight">#FFDC13</color>
+    <color name="colorOrange">#FC8001</color>
+    <color name="colorOrangeLight">#FC8501</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackLight">#454F63</color>
+    <color name="colorBlackLight1">#71819E</color>
+
+    <color name="colorBlackLight2">#161719</color>
+    <color name="colorGrayDark2">#B4BBCA</color>
+    <color name="colorGrayDark">#959DAD</color>
+    <color name="colorGray">#E5E5E5</color>
+    <color name="colorGrayLight">#0D454F63</color>
+    <color name="colorBlackTrans">#99131313</color>
+    <color name="colorGrayTrans">#92424242</color>
+    <color name="colorBlue">#13B5DB</color>
+
+    <color name="colorGreenLight3">#E4ECFF</color>
+    <color name="colorGreenLight2">#DEF6EE</color>
+    <color name="colorGreenLight">#E4F8FD</color>
+    <color name="colorGreen">#6FCF97</color>
+    <color name="colorGreenDark">#37D09D</color>
+    <color name="colorGreenDark2">#38B081</color>
+    <color name="colorGreenDark3">#4EBC7F</color>
+
+
+    <color name="colorRed">#EB5757</color>
+    <color name="colorRedLight">#FFEFDD</color>
+    <color name="colorRedDark">#F02E39</color>
+    <color name="colorRedDark2">#FF4242</color>
+    <color name="colorGrayDark1">#D3D3D3</color>
+
+
+</resources>

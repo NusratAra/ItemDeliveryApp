@@ -1,0 +1,106 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorMagentaDark</item>
+        <item name="colorPrimaryDark">@color/colorMagentaDark</item>
+        <item name="colorAccent">@color/colorMagentaDark</item>
+    </style>
+
+    <style name="AppThemeEditText" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
+    </style>
+
+
+    <style name="AppThemeRegular" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimary">@color/colorGray</item>
+        <item name="colorPrimaryDark">@color/colorGray</item>
+        <item name="colorAccent">@color/colorGray</item>
+<!--        <item name="android:textColorPrimary">#FFFFFF</item>-->
+    </style>
+
+    <style name="AppThemeWhite" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="colorPrimary">@color/colorGray</item>
+        <item name="colorPrimaryDark">@color/colorGray</item>
+        <item name="colorAccent">@color/colorGray</item>
+        <!--        <item name="android:textColorPrimary">#FFFFFF</item>-->
+
+    </style>
+
+    <style name="AppTheme_Payment" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="colorPrimary">@color/colorYellowDark</item>
+        <item name="colorPrimaryDark">@color/colorYellowDark</item>
+        <item name="colorAccent">@color/colorYellowDark</item>
+    </style>
+
+    <style name="AppThemeUser" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorYellow</item>
+        <item name="colorPrimaryDark">@color/colorYellow</item>
+        <item name="colorAccent">@color/colorYellow</item>
+    </style>
+
+
+    <style name="Theme_D1NoTitleDim" parent="android:style/Theme.Translucent">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+
+    </style>
+
+    <style name="MyCheckBox" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorControlNormal">@color/colorMagentaDark</item>   <!-- normal border color change as you wish -->
+        <item name="colorControlActivated">@color/colorMagentaDark</item> <!-- activated color change as you wish -->
+        <item name="android:textColor">@color/colorBlackLight</item> <!-- checkbox text color -->
+    </style>
+
+    <style name="EditText.Login" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/colorBlackLight</item>
+        <item name="android:textColorHint">@color/colorBlackLight</item>
+        <item name="colorAccent">@color/colorMagentaDark</item>
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorMagentaDark</item>
+    </style>
+
+<!--    <style name="CustomAppTheme" parent="Theme.AppCompat">-->
+<!--        <item name="android:textColorPrimaryDisableOnly">#00838f</item>-->
+<!--        <item name="colorAccent">#e91e63</item>-->
+<!--    </style>-->
+
+    <style name="CustomAppTheme" parent="@style/Widget.AppCompat.CompoundButton.Switch">
+<!--        <item name="android:textColorPrimaryDisableOnly">#b71c1c</item>-->
+<!--        <item name="android:colorForeground">#f57f17</item>-->
+<!--        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>-->
+<!--        <item name="android:thumb">@drawable/en</item>-->
+<!--        <item name="android:track">@drawable/ar</item>-->
+        <item name="trackTint">@color/switch_color</item>
+<!--        <item name="thumbTint">@color/switch_color</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
+</resources>

@@ -1,0 +1,230 @@
+<resources>
+    <string name="app_name">Twsl</string>
+    <string name="app_title">Twsl.com.sa</string>
+    <string name="app_title_ar">توصل.كوم</string>
+    <string name="select_way_customer">Customer login to approve and track shipment</string>
+    <string name="select_way_driver">Driver login/sign up</string>
+    <string name="login_text">Let\'s Start with \nLogin</string>
+    <string name="register_text">Let\'s Start with \nRegister</string>
+    <string name="email_text">Email or Phone</string>
+    <string name="password_text">Password</string>
+    <string name="forgot_pass">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_to_reg">Don\'t have an account?</string>
+    <string name="reg_to_login">Have an account?</string>
+    <string name="driver_name">Name</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="email_address">Email</string>
+    <string name="phone">Phone</string>
+    <string name="city">Jeddah</string>
+    <string name="city1">Abha</string>
+    <string name="city2">Badr</string>
+
+    <string name="postal_code">Postal code</string>
+    <string name="address">Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="next_button">Next</string>
+    <string name="national_id">IQMA/National ID</string>
+    <string name="vehicle_plate_number">Vehicle Plate Number</string>
+    <string name="vehicle_model">Vehicle Model</string>
+    <string name="iben_number">IBEN Number</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="agree_terms_and_conditions">I agree with</string>
+    <string name="forgot_password">Forgot \nPassword</string>
+    <string name="forgot_password_text">Enter the phone number and we will send you a code to reset your password</string>
+    <string name="send">Send</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="reset_password">Reset your \nPassword</string>
+    <string name="reset_password_text">Just type here your new password and good to go</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="reset">Reset</string>
+    <string name="enter_code">Enter Your \nCode</string>
+    <string name="enter_code_text">Please enter the code we sent to you at 12345678</string>
+    <string name="enter_code_text2">Enter the code here that we sent to you</string>
+    <string name="timer">Resend code in</string>
+    <string name="timer2">Didn\'t receive yet?</string>
+    <!--    TODO: delete time-->
+    <string name="time">Seconds</string>
+    <string name="time2">Send again</string>
+    <string name="continue_text">Continue</string>
+
+    <string name="verification_text">Choose your way to get verification code via: </string>
+    <string name="report_issue">Report Issues?</string>
+    <string name="issue1">My order was unprofessional</string>
+    <string name="issue2">It\'s look too much time</string>
+    <string name="issue3">Issues unknown</string>
+
+    <string name="issue_placeholder">Type here your issues</string>
+    <string name="issue_text">Trip ID #8273HG</string>
+
+    <string name="submit">Submit</string>
+
+    <string name="my_profile_text">My Profile</string>
+
+    <string name="driver_name_text">Ajmal Akeem Khan</string>
+    <string name="driver_name_No_name">User</string>
+
+    <string name="trip_history_text">Trip History</string>
+    <string name="payment_history_text">Payment History</string>
+    <string name="edit_profile_text">Edit Profile</string>
+    <string name="change_number_text">Change Number</string>
+    <string name="change_pass_text">Change Password</string>
+    <string name="switch_to_arabic_text">Switch to Arabic</string>
+    <string name="logout_text">Logout</string>
+    <string name="logout">Log out</string>
+    <string name="logout_small_text">Are you sure? Logging out will remove account from this device</string>
+
+    <string name="are_sure">Are you sure?</string>
+    <string name="are_sure_small_text">By canceling this trip the next nearby driver will get the request</string>
+
+    <string name="change_number">Change phone \nnumber</string>
+    <string name="change_number_small_text">For changing your phone number type password &amp; new phone number</string>
+
+    <string name="type_password">Type password</string>
+    <string name="new_phone_no">New Phone Number</string>
+
+    <string name="change_password">Change your \npassword</string>
+    <string name="change_password_small_text">For changing your password type your old password first</string>
+    <string name="old_password">Old password</string>
+
+
+    <string name="total_ride_text">Total Rides</string>
+    <string name="total_ride">734</string>
+
+    <string name="total_earn_text">Total Earn</string>
+    <string name="total_earn">SAR 32,234</string>
+    <string name="earn1">SAR 45,345</string>
+
+    <string name="earn">SAR 63</string>
+
+
+    <string name="date1">6th Mar, 2020</string>
+    <string name="date2">6th Fab, 2020</string>
+    <string name="date3">6th Jan, 2020</string>
+    <string name="date4">June 14, 09:24am</string>
+
+
+    <string name="history_id">#4GH36J</string>
+    <string name="rides_text">Rides</string>
+    <string name="rides">234</string>
+
+    <string name="paid_text">Paid</string>
+    <string name="all_text">All</string>
+    <string name="unpaid_text">Unpaid</string>
+
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+
+    <string name="name1">Rakkah, Al khabar 31952</string>
+    <string name="name2">Al Muntazah, khamis Mushait</string>
+    <string name="complete_text">Completed</string>
+
+    <string name="complete">Completed</string>
+    <string name="total">Total</string>
+    <string name="confirm_your_delivery">Confirm your delivery</string>
+    <string name="confirm_your_delivery_warning">If you didn\'t confirm your delivery it will \n expire on</string>
+    <string name="expire_date">17th Jan, 2020 07:24 pm</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="please_wait">Please wait!</string>
+    <string name="please_wait_warning">Your product is about to be picked \n up and being ready to \n on its way</string>
+    <string name="please_wait_warning_1">No delivery requests yet</string>
+
+    <string name="say_otp">Say the OTP code you just received \n by SMS to the driver</string>
+    <string name="enjoy">Enjoy!</string>
+    <string name="delivery_complete">Your delivery is complete</string>
+    <string name="problem">Did you have any problem?</string>
+    <string name="cancel_text">Your delivery was expired/cancelled</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+
+    <string name="type_track">Type your track ID</string>
+    <string name="type_track_text">By adding your track ID you can \n track or approve your trip</string>
+    <string name="track">Track</string>
+
+    <string name="warning">Warning!</string>
+    <string name="warning_text">If you confirm to reschedule your trip, \n it cannot be modified again</string>
+
+    <string name="day1">Friday</string>
+    <string name="day2">Saturday</string>
+    <string name="day3">Sunday</string>
+
+    <string name="date5">January 14, 2020</string>
+    <string name="date6">January 15, 2020</string>
+    <string name="date7">January 16, 2020</string>
+
+    <string name="time3">Morning</string>
+    <string name="time4">Afternoon</string>
+    <string name="time5">Evening</string>
+
+    <string name="time_num1">5:00 AM - 11:59 AM</string>
+    <string name="time_num2">12:00 PM - 4:59 PM</string>
+    <string name="time_num3">5:00 PM - 10:00 PM</string>
+
+    <string name="done">Done</string>
+    <string name="rescheduled">Your trip is rescheduled</string>
+
+    <string name="ready_to_delivery">Ready for delivery</string>
+    <string name="in_delivery">In delivery</string>
+    <string name="delivered">Delivered</string>
+    <string name="set_schedule">Set schedule</string>
+
+    <string name="filter_text">Filter</string>
+    <string name="company_name_text">Here is company name very long two line example</string>
+    <string name="company_name">Dar Al Arkan Real Estate \nCompany</string>
+    <string name="demo_address">Al Mukarrahmah Rd, Riyadh 12622</string>
+    <string name="demo_address2">King Abdul Aziz Rd, Ajyad, Mecca 24231 \nSaudi Arabia</string>
+
+
+    <string name="details">Details</string>
+    <string name="trip_id">Trip ID</string>
+    <string name="time_text">Time</string>
+    <string name="pick_up_point">Pick up point</string>
+    <string name="delivery_point">Delivery point</string>
+
+    <string name="accept">Accept</string>
+    <string name="default_word_count">\0/140</string>
+
+    <string name="word_count">\/140</string>
+    <string name="name">Name: Mahmud Ali</string>
+
+
+    <string name="ready_for_delivery_line1">“Ready for delivery” Section</string>
+    <string name="ready_for_delivery_line2">Waiting for customer response</string>
+    <string name="ready_for_delivery_line3">Preparation for delivery</string>
+
+    <string name="in_delivery_line1">“In Delivery” Section</string>
+    <string name="in_delivery_line2">On this section you have to going to the \ncustomer location \n\nRemember that when you’re in “In Delivery” \nsection customer will be able to track you by \nmap view</string>
+
+    <string name="delivered_line1">“Delivered” Section</string>
+    <string name="delivered_line2">Give the product to customer</string>
+    <string name="delivered_line3">Receive OTP from customer</string>
+
+    <string name="trip_verification_text1">Please ask for the,</string>
+    <string name="trip_verification_text2">Trip verification code </string>
+    <string name="trip_verification_text3">to the customer</string>
+    <string name="success">success</string>
+    <string name="update">Update</string>
+
+    <string name="user_info">User Information</string>
+    <string name="other_info">Other Information</string>
+
+
+    <string name="ex_name">Ahmed Hassan</string>
+    <string name="ex_email">example@gmail.com</string>
+    <string name="ex_city">Riyadh</string>
+    <string name="ex_city_code">12233</string>
+    <string name="ex_address">Granada Center, Olaya Street.</string>
+    <string name="ex_code">845673495687544</string>
+    <string name="ex_id">JGH - 34578</string>
+    <string name="ex_amg">AMG GT</string>
+    <string name="ex_code_num">SA89 3704 0044 0532 0130 00</string>
+    <string name="status">Status</string>
+    <string name="expire">Expired</string>
+    <string name="delivery_warning_text">Please wait until the customer approve for delivery</string>
+
+
+</resources>

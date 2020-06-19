@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".verification.ForgotPasswordActivity"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGray"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:subtitleTextColor="@color/colorWhite"
+        app:titleTextColor="@color/colorWhite" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:background="@color/colorGray"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        >
+        <TextView
+            android:id="@+id/login_text_fix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlackLight"
+            android:text="@string/change_number"
+            android:textSize="26sp"
+            android:fontFamily="@font/poppins_bold"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/login_text_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_text_fix"
+            android:text="@string/change_number_small_text"
+            android:textSize="13sp"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorGrayDark"/>
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:background="@drawable/custom_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_text_small"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:padding="10dp">
+            <EditText
+                android:id="@+id/type_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/custom_edit_text_tag"
+                android:hint="@string/type_password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorGray"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_regular"/>
+
+            <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/custom_edit_text_tag"
+                android:hint="@string/new_phone_no"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="36dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorGray"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_regular"/>
+
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_change_phone_no"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="32dp"
+                android:padding="10dp"
+                android:textAlignment="center"
+                fancy:fb_defaultColor="@color/colorMagentaDark"
+                fancy:fb_focusColor="@color/colorAccent"
+                fancy:fb_radius="10dp"
+                fancy:fb_text="@string/next_button"
+                fancy:fb_textColor="#FFFFFF"
+                fancy:fb_textSize="14sp" />
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
