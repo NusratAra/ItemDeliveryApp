@@ -58,7 +58,7 @@
     <string name="issue3">Issues unknown</string>
 
     <string name="issue_placeholder">Type here your issues</string>
-    <string name="issue_text">Trip ID #8273HG</string>
+    <string name="issue_text">Trip ID #</string>
 
     <string name="submit">Submit</string>
 
@@ -98,7 +98,7 @@
     <string name="total_earn">SAR 32,234</string>
     <string name="earn1">SAR 45,345</string>
 
-    <string name="earn">SAR 63</string>
+    <string name="earn">SAR </string>
 
 
     <string name="date1">6th Mar, 2020</string>
@@ -225,6 +225,7 @@
     <string name="status">Status</string>
     <string name="expire">Expired</string>
     <string name="delivery_warning_text">Please wait until the customer approve for delivery</string>
+    <string name="error_gif">Gif error!</string>
 
 
 </resources>

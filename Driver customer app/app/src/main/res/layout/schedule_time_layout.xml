@@ -21,25 +21,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/morning_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/time3"
-            android:textColor="@color/colorBlackLight"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/time3"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:text="@string/time_num1"
-            android:textColor="@color/colorGrayDark2"
-            android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="@string/time_num1"
+                android:textColor="@color/colorGrayDark2"
+                android:textSize="12sp" />
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
@@ -48,24 +54,33 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/divider" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/afternoon_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/time4"
-            android:textColor="@color/colorBlackLight"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/time4"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:text="@string/time_num2"
-            android:textColor="@color/colorGrayDark2"
-            android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="@string/time_num2"
+                android:textColor="@color/colorGrayDark2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
 
         <View
             android:layout_width="match_parent"
@@ -74,24 +89,33 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/divider" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/evening_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/time5"
-            android:textColor="@color/colorBlackLight"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:text="@string/time_num3"
-            android:textColor="@color/colorGrayDark2"
-            android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/time5"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="@string/time_num3"
+                android:textColor="@color/colorGrayDark2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
 
 
     </LinearLayout>

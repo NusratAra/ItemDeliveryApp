@@ -64,7 +64,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/trip_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
@@ -73,7 +73,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/history_id"
+                android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -137,6 +137,7 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/company_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -146,6 +147,7 @@
                 fancy:civ_border_width="0dp" />
 
             <TextView
+                android:id="@+id/company_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -164,6 +166,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -180,6 +183,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
+            android:id="@+id/company_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -202,6 +206,7 @@
             android:background="@drawable/divider" />
 
         <FrameLayout
+            android:id="@+id/pickup_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -236,6 +241,7 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/pickup_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -261,7 +267,7 @@
             android:weightSum="2">
 
             <ImageButton
-                android:id="@+id/phone2"
+                android:id="@+id/pickup_phone_redirect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -274,7 +280,7 @@
 
 
             <ImageButton
-                android:id="@+id/procced2"
+                android:id="@+id/pickup_message_redirect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -293,6 +299,7 @@
             android:background="@drawable/divider" />
 
         <FrameLayout
+            android:id="@+id/delivery_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -327,6 +334,7 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/customer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -343,6 +351,7 @@
             tools:ignore="RtlCompat" />
 
         <TextView
+            android:id="@+id/delivery_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -370,7 +379,7 @@
             android:weightSum="2">
 
             <ImageButton
-                android:id="@+id/phone"
+                android:id="@+id/delivery_phone_redirect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -383,7 +392,7 @@
 
 
             <ImageButton
-                android:id="@+id/procced"
+                android:id="@+id/delivery_message_redirect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

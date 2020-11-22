@@ -16,6 +16,8 @@ import com.example.nishikanto.itemdeliverapp.services.NoConnectivityException;
 import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +28,8 @@ public class SplashScreenActivity extends AppCompatActivity {
     private DataUtils dataUtils;
     private String accessToken;
     private String refreshToken;
+
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +67,32 @@ public class SplashScreenActivity extends AppCompatActivity {
         userCall.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+
+                if(count > 1){
+                    dataUtils.setStr("access", "");
+                    dataUtils.setStr("refresh", "");
+                    newUserCall();
+                    return;
+                }
                 if(response.body() != null){
                     Log.d(TAG, "ResponseBodyAuth: "+ response.body().toString());
                     getUserInfo(response.body());
                     homePageRedirect();
                 }
                 if(response.errorBody() != null){
-                    Log.d(TAG, "ErrorBodyAuth: "+ response.errorBody().toString());
+                    try {
+                        Log.d(TAG, "ErrorBodyAuth: "+ response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     callForAccessToken(refreshToken);
                 }
+
+                Log.d(TAG, "ResponseMessage: Auth"+ response.message());
+
+                count++;
+
+
             }
 
             @Override
@@ -124,9 +145,15 @@ public class SplashScreenActivity extends AppCompatActivity {
                     getAuthUser(response.body().getAccess());
                 }
                 if (response.errorBody() != null) {
-                    Log.d(TAG, "onResponseErrorBodyR: " + response.errorBody().toString());
+                    try {
+                        Log.d(TAG, "onResponseErrorBodyR: " + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     newUserCall();
                 }
+
+                Log.d(TAG, "ResponseMessage: "+ response.message());
             }
 
             @Override
@@ -154,6 +181,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 
     private void newUserCall() {
+        //SelectWayActivity
         Intent i = new Intent(getBaseContext(), SelectWayActivity.class);
         startActivity(i);
         finish();

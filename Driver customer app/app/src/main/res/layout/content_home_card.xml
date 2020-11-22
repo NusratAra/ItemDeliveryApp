@@ -45,7 +45,7 @@
                 android:layout_centerVertical="true">
 
                 <TextView
-                    android:id="@+id/history_id"
+                    android:id="@+id/company_id"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/custom_button_magenda_border"
@@ -74,13 +74,13 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
             <ImageView
-                android:id="@+id/company_icon"
+                android:id="@+id/product_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:src="@drawable/company_icon1"/>
             <TextView
-                android:id="@+id/completion_state"
+                android:id="@+id/company_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -112,7 +112,7 @@
                     android:src="@drawable/item_icon1" />
 
                 <TextView
-                    android:id="@+id/name1"
+                    android:id="@+id/pickup_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -136,7 +136,7 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/item_icon2"/>
                 <TextView
-                    android:id="@+id/name2"
+                    android:id="@+id/delivery_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
@@ -153,8 +153,10 @@
 
         </LinearLayout>
         <include
+            android:id="@+id/button_ready_for_delivery"
             layout="@layout/button_ready_for_delivery"/>
         <include
+            android:id="@+id/button_in_delivery"
             android:visibility="gone"
             layout="@layout/button_in_delivery"/>
 

@@ -58,6 +58,7 @@
             android:padding="5dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle_view_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:foreground="@drawable/round_black_bd"
@@ -95,8 +96,7 @@
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/driver_name"
-                android:inputType="textPersonName"
-                android:padding="10dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "                android:padding="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -113,6 +113,7 @@
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/contact_number"
+                android:digits="0123456789+"
                 android:inputType="phone"
                 android:padding="10dp"
                 android:layout_margin="10dp"
@@ -164,6 +165,7 @@
                     android:layout_gravity="start"
                     android:background="@drawable/custom_edit_text_tag"
                     android:hint="@string/postal_code"
+                    android:digits="0123456789"
                     android:inputType="number"
                     android:padding="10dp"
                     android:layout_margin="10dp"
@@ -180,6 +182,8 @@
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/address"
                 android:padding="10dp"
+                android:digits="#-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:inputType="text"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"

@@ -28,6 +28,8 @@ import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 import com.example.nishikanto.itemdeliverapp.verification.ForgotPasswordActivity;
 
+import java.io.IOException;
+
 import mehdi.sakout.fancybuttons.FancyButton;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -143,6 +145,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     progressDialog.dismiss();
+                    try {
+                        Log.d(TAG, "onResponseRefresh: " + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     Toast.makeText(getApplicationContext(), "Email or password wrong!", Toast.LENGTH_SHORT).show();
                 }
 //                Log.d(TAG, "onResponseAccess: " + response.body().getAccess());
@@ -173,6 +180,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.body() != null){
                     getUserInfo(response.body());
+                    Intent i=new Intent(getBaseContext(), DriverHomeActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                    finish();
                 }
                 progressDialog.dismiss();
 
@@ -193,12 +204,11 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        Intent i=new Intent(getBaseContext(), DriverHomeActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
-        finish();
+
     }
 
+
+    //TODO add more user data
     private void getUserInfo(User response) {
         user = new User();
         user.setId(response.getId());

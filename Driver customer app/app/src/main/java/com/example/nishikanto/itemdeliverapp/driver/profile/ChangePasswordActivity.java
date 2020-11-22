@@ -31,6 +31,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private EditText oldPassword;
     private EditText newPassword;
     private EditText confirmNewPassword;
+    private ActionBar actionBar;
+    private Toolbar toolbar;
 
 
     @Override
@@ -39,12 +41,48 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
+        initToolbar();
+        initFindView();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        btnUpdatePassword.setOnClickListener(btnUpdateListener);
+
+
+    }
+
+    private void initFindView() {
+
+
+        oldPassword = findViewById(R.id.old_password);
+        newPassword = findViewById(R.id.new_password);
+        confirmNewPassword = findViewById(R.id.confirm_new_password);
+
+        btnUpdatePassword = findViewById(R.id.btn_update);
+        btnUpdatePassword.setCustomTextFont(R.font.poppins_medium);
+
+    }
+
+    View.OnClickListener btnUpdateListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(!isFieldEmpty()){
+                if(isMatchedPass()){
+                    changePassCall(oldPassword.getText().toString(), newPassword.getText().toString(), confirmNewPassword.getText().toString());
+                } else {
+                    Toast.makeText(getApplicationContext(), "Password didn't match!", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    private void initToolbar() {
+
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
 
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         View customView = LayoutInflater.from(this).inflate(R.layout.custom_toolbar, null);
@@ -56,30 +94,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        oldPassword = findViewById(R.id.old_password);
-        newPassword = findViewById(R.id.new_password);
-        confirmNewPassword = findViewById(R.id.confirm_new_password);
-
-        btnUpdatePassword = findViewById(R.id.btn_update);
-        btnUpdatePassword.setCustomTextFont(R.font.poppins_medium);
-
-        btnUpdatePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!isFieldEmpty()){
-                    if(isMatchedPass()){
-                        changePassCall(oldPassword.getText().toString(), newPassword.getText().toString(), confirmNewPassword.getText().toString());
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Password didn't match!", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-
     }
 
     private boolean isFieldEmpty() {
@@ -108,12 +122,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
         AuthenticationService authenticationService = RetrofitInstance.getService(getApplicationContext());
-        Call<JsonElement> userCall = authenticationService.changePass(accessToken, newPass, confirmPass);
+        Call<JsonElement> userCall = authenticationService.changePass(accessToken, oldPass, newPass, confirmPass);
         userCall.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if(response.body() != null){
                     Log.d(TAG, "onResponseBody: "+ response.body().toString());
+                    onBackPressed();
                 }
                 if(response.errorBody() != null){
                     Log.d(TAG, "onResponseError: "+ response.errorBody().toString());
@@ -132,7 +147,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Password wrong!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                onBackPressed();
+
             }
 
             @Override

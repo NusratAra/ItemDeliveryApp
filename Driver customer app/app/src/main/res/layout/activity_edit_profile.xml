@@ -44,6 +44,7 @@
                 app:layout_constraintTop_toTopOf="@+id/next_button">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circle_view_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -112,7 +113,7 @@
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/driver_name"
-                android:inputType="textPersonName"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "                android:padding="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -168,11 +169,13 @@
                     android:layout_gravity="start"
                     android:background="@drawable/custom_edit_text_tag"
                     android:hint="@string/postal_code"
+                    android:digits="0123456789"
                     android:inputType="number"
                     android:layout_margin="10dp"
                     android:paddingLeft="20dp"
                     android:text="@string/ex_city_code"
-                    android:textColor="@color/colorBlackLight"                    android:textColorHint="@color/colorGray"
+                    android:textColor="@color/colorBlackLight"
+                    android:textColorHint="@color/colorGray"
                     android:textSize="14sp"
                     android:fontFamily="@font/poppins_regular"/>
             </LinearLayout>
@@ -183,12 +186,15 @@
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/address"
+                android:digits="#-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:inputType="text"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="30dp"
                 android:paddingLeft="20dp"
                 android:text="@string/ex_address"
-                android:textColor="@color/colorBlackLight"                android:textColorHint="@color/colorGray"
+                android:textColor="@color/colorBlackLight"
+                android:textColorHint="@color/colorGray"
                 android:textSize="14sp"
                 android:fontFamily="@font/poppins_regular"/>
 
@@ -219,12 +225,14 @@
             android:layout_marginBottom="64dp"
             android:padding="10dp">
             <EditText
+                android:id="@+id/national_id"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/driver_name"
-                android:inputType="textPersonName"
+                android:digits="0123456789"
+                android:inputType="number"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -237,12 +245,14 @@
                 android:fontFamily="@font/poppins_regular"/>
 
             <EditText
+                android:id="@+id/vehicle_plate_number"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/email_address"
-                android:inputType="textEmailAddress"
+                android:digits="#-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:inputType="text"
                 android:layout_margin="10dp"
                 android:paddingLeft="20dp"
                 android:text="@string/ex_id"
@@ -253,6 +263,7 @@
 
 
             <EditText
+                android:id="@+id/vehicle_model"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="start"
@@ -264,16 +275,21 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="20dp"
                 android:text="@string/ex_amg"
+                android:digits="0123456789"
+                android:inputType="number"
                 android:textColor="@color/colorBlackLight"                android:textColorHint="@color/colorGray"
                 android:textSize="14sp"
                 android:fontFamily="@font/poppins_regular"/>
 
             <EditText
+                android:id="@+id/iben_number"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="start"
                 android:background="@drawable/custom_edit_text_tag"
                 android:hint="@string/address"
+                android:digits="0123456789"
+                android:inputType="number"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="30dp"

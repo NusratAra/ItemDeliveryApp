@@ -31,16 +31,16 @@ public class ReadyForDeliveryFragment extends Fragment {
         toolbar_image = this.getActivity().findViewById(R.id.toolbar_image);
         Drawable image = getResources().getDrawable(R.drawable.delivery2);
         toolbar_image.setImageDrawable(image);
-
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragmentManager = getFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.frame_layout, new DeliveryLocationFragment());
-                fragmentTransaction.commit();
-            }
-        });
+//
+//        layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                fragmentManager = getFragmentManager();
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.frame_layout, new DeliveryLocationFragment());
+//                fragmentTransaction.commit();
+//            }
+//        });
         return view;
 
     }

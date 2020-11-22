@@ -4,7 +4,15 @@
     package="com.example.nishikanto.itemdeliverapp">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -14,7 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeRegular"
         android:name=".ItemDeliveryApplication"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        tools:targetApi="q">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+
         <activity android:name=".driver.trip.IndividualPaymentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeWhite"
@@ -168,6 +184,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".location.LocationReceiver">
+            <intent-filter>
+                <action android:name="my.action"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

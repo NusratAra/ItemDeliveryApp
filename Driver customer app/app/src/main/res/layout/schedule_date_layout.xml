@@ -22,24 +22,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/day1_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/day1"
-            android:textColor="@color/colorBlackLight"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:text="@string/date5"
-            android:textColor="@color/colorGrayDark2"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/day1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/day1"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="@string/date5"
+                android:textColor="@color/colorGrayDark2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
@@ -48,24 +59,35 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/divider" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/day2_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/day2"
-            android:textColor="@color/colorBlackLight"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:text="@string/date6"
-            android:textColor="@color/colorGrayDark2"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/day2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/day2"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/date2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="@string/date6"
+                android:textColor="@color/colorGrayDark2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
@@ -74,24 +96,36 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/divider" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/day3_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/day3"
-            android:textColor="@color/colorBlackLight"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:text="@string/date7"
-            android:textColor="@color/colorGrayDark2"
-            android:textSize="12sp" />
+            <TextView
+                android:id="@+id/day3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/day3"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/date3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="@string/date7"
+                android:textColor="@color/colorGrayDark2"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
 
 
     </LinearLayout>

@@ -33,4 +33,26 @@ public class RetrofitInstance {
         return retrofit.create(AuthenticationService.class);
     }
 
+    public static TripAuthenticationService getServiceCall(Context context) {
+
+
+        if (retrofit == null) {
+
+            OkHttpClient.Builder oktHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new NetworkConnectionInterceptor(context));
+            // Adding NetworkConnectionInterceptor with okHttpClientBuilder.
+
+//            oktHttpClient.addInterceptor(logging);
+
+            retrofit = new Retrofit
+                    .Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+
+
+        return retrofit.create(TripAuthenticationService.class);
+    }
+
 }

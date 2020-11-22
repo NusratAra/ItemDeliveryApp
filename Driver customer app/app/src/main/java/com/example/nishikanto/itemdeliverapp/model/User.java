@@ -21,6 +21,7 @@ public class User {
     private String iebn;
     private String date_joined;
     private String updated_at;
+    private String profile_or_logo;
 
 
 
@@ -105,6 +106,14 @@ public class User {
 
     public String getUpdated_at() {
         return updated_at;
+    }
+
+    public String getProfile_or_logo() {
+        return profile_or_logo;
+    }
+
+    public void setProfile_or_logo(String profile_or_logo) {
+        this.profile_or_logo = profile_or_logo;
     }
 
     // Setter Methods
