@@ -37,7 +37,7 @@
                 android:fontFamily="@font/poppins_regular"/>
 
             <TextView
-                android:id="@+id/history_id"
+                android:id="@+id/trip_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -45,7 +45,7 @@
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="right"
-                android:text="@string/history_id"
+                android:text="@string/trip_code"
                 android:textColor="@color/colorBlackLight"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -72,6 +72,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="12dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:textColor="@color/colorGrayDark"
                 android:fontFamily="@font/poppins_regular"/>
 
@@ -81,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="12dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="right"
@@ -102,6 +104,7 @@
                 android:text="@string/rides"
                 android:textSize="16sp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:textColor="@color/colorGreenDark"
                 android:fontFamily="@font/poppins_medium"/>
 
@@ -110,6 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="right"

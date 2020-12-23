@@ -63,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_regular"
@@ -71,13 +72,14 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/trip_id"
+            android:id="@+id/total_earn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
-            android:text="@string/earn1"
+            android:text="@string/earn"
             android:textColor="@color/colorWhite"
             android:textSize="24sp" />
 
@@ -99,6 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
                 android:layout_weight="1"
@@ -129,6 +132,7 @@
                 android:id="@+id/outbreak"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginRight="3dp"
                 android:layout_marginBottom="3dp"

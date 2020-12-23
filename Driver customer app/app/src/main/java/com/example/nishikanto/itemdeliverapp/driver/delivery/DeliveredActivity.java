@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -23,9 +24,15 @@ import androidx.appcompat.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.example.nishikanto.itemdeliverapp.R;
 import com.example.nishikanto.itemdeliverapp.driver.DriverHomeActivity;
+import com.example.nishikanto.itemdeliverapp.model.SingleTrip;
 import com.example.nishikanto.itemdeliverapp.model.Trip;
+import com.example.nishikanto.itemdeliverapp.services.NoConnectivityException;
+import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
+import com.example.nishikanto.itemdeliverapp.services.TripAuthenticationService;
 import com.example.nishikanto.itemdeliverapp.utils.BaseUrlUtils;
+import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.gson.GsonBuilder;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,6 +42,9 @@ import java.util.Date;
 import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.blurry.Blurry;
 import mehdi.sakout.fancybuttons.FancyButton;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DeliveredActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = DeliveredActivity.class.getSimpleName();
@@ -81,7 +91,6 @@ public class DeliveredActivity extends AppCompatActivity implements View.OnClick
         initFindViewBottomSheet();
         getIntentValue();
 
-
         btn_image.setOnClickListener(this);
         btnImageBack.setOnClickListener(this);
         blurView.setOnClickListener(this);
@@ -94,6 +103,36 @@ public class DeliveredActivity extends AppCompatActivity implements View.OnClick
         deliveryPoint.setOnClickListener(this);
 
 
+    }
+
+    private void tripFinishCall() {
+        DataUtils dataUtils = new DataUtils(getApplicationContext());
+        String token = "Bearer "+ dataUtils.getStr("access");
+
+        TripAuthenticationService tripAuthenticationService = RetrofitInstance.getServiceCall(getApplicationContext());
+        Call<SingleTrip> tripCall = tripAuthenticationService.updateTrip(token, trip.getId(), BaseUrlUtils.FINISHED, trip.getDriver_id(), 4811);
+        Log.d(TAG, "tripFinishCall: "+ token+"+"+BaseUrlUtils.FINISHED+"+"+trip.getDriver_id());
+        tripCall.enqueue(new Callback<SingleTrip>() {
+            @Override
+            public void onResponse(Call<SingleTrip> call, Response<SingleTrip> response) {
+                Log.d(TAG, "UpdateDeliveryTrip: "+ new GsonBuilder().setPrettyPrinting().create().toJson(response.body()));
+
+                showSuccessDialog();
+            }
+
+            @Override
+            public void onFailure(Call<SingleTrip> call, Throwable t) {
+                if (t instanceof NoConnectivityException) {
+                    Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
+                    toast.show();
+                    Log.d(TAG, "onFailure: " + t.getMessage());
+                }
+            }
+        });
     }
 
     @SuppressLint({"SimpleDateFormat", "SetTextI18n"})
@@ -267,8 +306,7 @@ public class DeliveredActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
-                showSuccessDialog();
-
+                tripFinishCall();
             }
         });
 

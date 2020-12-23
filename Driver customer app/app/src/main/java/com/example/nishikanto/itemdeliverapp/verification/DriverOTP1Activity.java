@@ -128,15 +128,21 @@ public class DriverOTP1Activity extends AppCompatActivity {
 
                 } else {
                     progressDialog.dismiss();
-                    Toast toast = Toast.makeText(getApplicationContext(), "Verification code or password wrong!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.verification_code_wrong), Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
 
             @Override
             public void onFailure(Call<JSONObject> call, Throwable t) {
-                if(t instanceof NoConnectivityException){
-                    Log.e(TAG, "onFailure: ", t);
+                if (t instanceof NoConnectivityException) {
+                    Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
+                    toast.show();
+                    Log.d(TAG, "onFailure: " + t.getMessage());
                 }
                 progressDialog.dismiss();
             }

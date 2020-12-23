@@ -114,10 +114,10 @@ public class SignupPage1Activity extends AppCompatActivity {
                     if(isMatchedPass()){
                         nextPageSignup();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Password didn't match!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.pass_not_match), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Please fill up all fields!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.fill_all_fields), Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
@@ -138,7 +138,7 @@ public class SignupPage1Activity extends AppCompatActivity {
     private void initSpinner() {
 
         String[] users = new String[]{
-                "City",
+                getString(R.string.city_text),
                 getString(R.string.city),
                 getString(R.string.city1),
                 getString(R.string.city2)
@@ -363,7 +363,7 @@ public class SignupPage1Activity extends AppCompatActivity {
 //            intent.putExtra("image_url", imageUrlString);
 //            startActivity(intent);
 //        } else {
-//            Toast.makeText(this, "Invalid Email!!!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, this.getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
 //        }
 
     }

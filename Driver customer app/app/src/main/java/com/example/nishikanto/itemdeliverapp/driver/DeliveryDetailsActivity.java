@@ -268,7 +268,7 @@ public class DeliveryDetailsActivity extends AppCompatActivity implements View.O
                 if(response.errorBody() !=  null){
                     try {
                         Log.d(TAG, "onResponse: "+ response.errorBody().string());
-                        Toast.makeText(getApplicationContext(), "Invalid Status!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.invalid_status), Toast.LENGTH_SHORT).show();
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -280,10 +280,10 @@ public class DeliveryDetailsActivity extends AppCompatActivity implements View.O
             public void onFailure(Call<Trip> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

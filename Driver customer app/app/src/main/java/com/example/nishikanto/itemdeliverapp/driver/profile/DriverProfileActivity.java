@@ -3,6 +3,7 @@ package com.example.nishikanto.itemdeliverapp.driver.profile;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
@@ -41,6 +42,8 @@ import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
 import com.example.nishikanto.itemdeliverapp.utils.BaseUrlUtils;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 
+import java.util.Locale;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.blurry.Blurry;
 import retrofit2.Call;
@@ -65,6 +68,8 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
     private SwitchCompat btnSwitch;
     public static Boolean isTouched = false;
     private CircleImageView driverProfilePic;
+    private LinearLayout switchToArabic;
+    private DataUtils dataUtils;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -72,6 +77,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_profile);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        dataUtils = new DataUtils(getApplicationContext());
 
         initToolbar();
         initFindView();
@@ -96,6 +102,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
         changeNumber.setOnClickListener(this);
         changePassword.setOnClickListener(this);
         logoutLayout.setOnClickListener(this);
+        switchToArabic.setOnClickListener(this);
     }
 
 
@@ -151,7 +158,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
                     if (response.errorBody() != null) {
                         Log.d(TAG, "ResponseErrorBody: " + response.errorBody());
                         Toast.makeText(getApplicationContext(),
-                                "Something is wrong! Please try again later.",
+                                getString(R.string.something_wrong),
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -160,10 +167,10 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
                 public void onFailure(Call<User> call, Throwable t) {
                     if (t instanceof NoConnectivityException) {
                         Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                        Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                         toast.show();
                     } else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                         toast.show();
                         Log.d(TAG, "onFailure: " + t.getMessage());
                     }
@@ -210,6 +217,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
         btnSwitch = findViewById(R.id.btn_switch);
         switchState = findViewById(R.id.switch_state);
         driverProfilePic = findViewById(R.id.driver_profile_pic);
+        switchToArabic = findViewById(R.id.switch_to_arabic_layout);
     }
 
     private void initToolbar() {
@@ -323,6 +331,30 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
             case R.id.logout_layout:
                 showDialog();
                 break;
+            case R.id.switch_to_arabic_layout:
+                languageSwitch();
+                break;
         }
+    }
+
+    private void languageSwitch() {
+        if(Locale.getDefault().getLanguage().equals("en")){
+            setLocal("ar");
+            recreate();
+        } else if(Locale.getDefault().getLanguage().equals("ar")){
+            setLocal("en");
+            recreate();
+        }
+    }
+
+    private void setLocal(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+        dataUtils.setStr("lang", lang);
+
     }
 }

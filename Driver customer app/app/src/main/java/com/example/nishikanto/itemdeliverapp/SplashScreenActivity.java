@@ -99,10 +99,10 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }
@@ -160,10 +160,10 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void onFailure(Call<UserCredential> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

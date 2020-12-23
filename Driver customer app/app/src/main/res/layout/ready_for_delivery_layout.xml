@@ -41,6 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center_horizontal"
             android:text="@string/please_wait_warning"

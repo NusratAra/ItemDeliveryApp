@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS"/>
 
+    <!-- Required for foreground services on P+. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
 
 
     <application
@@ -185,11 +188,11 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".location.LocationReceiver">
-            <intent-filter>
-                <action android:name="my.action"/>
-            </intent-filter>
-        </receiver>
+        <service
+            android:name=".location.LocationUpdatesService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" />
 
     </application>
 

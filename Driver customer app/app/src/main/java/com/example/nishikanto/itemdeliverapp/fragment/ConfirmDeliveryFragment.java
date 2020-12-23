@@ -81,7 +81,7 @@ public class ConfirmDeliveryFragment extends Fragment {
 
                 if (response.errorBody() != null){
                     Log.d(TAG, "TrackTripError: "+ new GsonBuilder().setPrettyPrinting().create().toJson(response.errorBody()));
-                    Toast.makeText(getContext(), "Please try again later!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.something_wrong), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -89,10 +89,10 @@ public class ConfirmDeliveryFragment extends Fragment {
             public void onFailure(Call<SingleTrip> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), getActivity().getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), getActivity().getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

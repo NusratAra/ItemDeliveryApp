@@ -30,6 +30,8 @@ public class Trip implements Parcelable {
     private String reschedule_date = null;
     private String reschedule_start_time = null;
     private String reschedule_end_time = null;
+    private float bill;
+    private String expire_date;
     private String created_at;
     private String updated_at;
     private ArrayList<Company> company;
@@ -60,6 +62,8 @@ public class Trip implements Parcelable {
         reschedule_date = parcel.readString();
         reschedule_start_time = parcel.readString();
         reschedule_end_time = parcel.readString();
+        bill = parcel.readFloat();
+        expire_date = parcel.readString();
         created_at = parcel.readString();
         updated_at = parcel.readString();
         company = parcel.createTypedArrayList(Company.CREATOR);
@@ -253,6 +257,23 @@ public class Trip implements Parcelable {
         this.reschedule_end_time = reschedule_end_time;
     }
 
+
+    public float getBill() {
+        return bill;
+    }
+
+    public void setBill(float bill) {
+        this.bill = bill;
+    }
+
+    public String getExpire_date() {
+        return expire_date;
+    }
+
+    public void setExpire_date(String expire_date) {
+        this.expire_date = expire_date;
+    }
+
     public String getCreated_at() {
         return created_at;
     }
@@ -315,6 +336,8 @@ public class Trip implements Parcelable {
         dest.writeString(reschedule_date);
         dest.writeString(reschedule_start_time);
         dest.writeString(reschedule_end_time);
+        dest.writeFloat(bill);
+        dest.writeString(expire_date);
         dest.writeString(created_at);
         dest.writeString(updated_at);
         dest.writeTypedList(company);

@@ -68,10 +68,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if(isMatchedPass()){
                     changePassCall(oldPassword.getText().toString(), newPassword.getText().toString(), confirmNewPassword.getText().toString());
                 } else {
-                    Toast.makeText(getApplicationContext(), "Password didn't match!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.pass_not_match), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.field_not_empty), Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -133,7 +133,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if(response.errorBody() != null){
                     Log.d(TAG, "onResponseError: "+ response.errorBody().toString());
                     progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Password wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.password_wrong), Toast.LENGTH_SHORT).show();
                 }
                 if(response.message() != null){
                     Log.d(TAG, "onResponseMessage: "+ response.message().toString());
@@ -144,7 +144,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 } else {
                     Log.d(TAG, "onResponse2: "+ response.errorBody().toString());
                     progressDialog.dismiss();
-                    Toast toast = Toast.makeText(getApplicationContext(), "Password wrong!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.password_wrong), Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
@@ -154,10 +154,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
             public void onFailure(Call<JsonElement> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

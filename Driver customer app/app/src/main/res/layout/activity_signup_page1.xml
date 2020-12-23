@@ -152,9 +152,11 @@
                     android:layout_weight="1"
                     android:gravity="left"
                     android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:dropDownWidth="145dp"
                     android:background="@drawable/spinner_background"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="@font/poppins_regular"/>
 
                 <EditText
@@ -265,6 +267,8 @@
                 android:text="@string/reg_to_login"
                 android:textColor="@color/colorBlackLight"
                 android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:textSize="14sp"
                 android:fontFamily="@font/poppins_medium"

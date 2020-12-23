@@ -1,0 +1,253 @@
+<resources>
+    <string name="app_name">BLINK</string>
+<!--    <string name="app_title">Twsl.com.sa</string>-->
+<!--    <string name="app_title_ar">توصل.كوم</string>-->
+    <string name="select_way_customer">العملاء: تسجيل دخول العميل للموافقة على الشحنة وتتبعها</string>
+    <string name="select_way_driver">السائقين: تسجيل دخول السائق/ تسجيل جديد</string>
+    <string name="login_text">أبدأ بتسجيل الدخول</string>
+    <string name="register_text">لنبدأ التسجيل</string>
+    <string name="email_text">الايميل أو الجوال</string>
+    <string name="password_text">كلمة المرور</string>
+    <string name="forgot_pass">نسيت كلمة المرور؟</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="register">تسجيل</string>
+    <string name="login_to_reg">ليس لديك حساب؟</string>
+    <string name="reg_to_login">هل لديك حساب؟</string>
+    <string name="driver_name">الاسم</string>
+    <string name="contact_number">رقم الجوال</string>
+    <string name="email_address">ايميل  </string>
+    <string name="phone">الجوال:</string>
+    <string name="city">Jeddah</string>
+    <string name="city1">Abha</string>
+    <string name="city2">Badr</string>
+
+    <string name="postal_code">الرمز البريدي</string>
+    <string name="address">العنوان</string>
+    <string name="password">كلمة المرور</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="next_button">التالي</string>
+    <string name="national_id">رقم الهوية / رقم الإقامة</string>
+    <string name="vehicle_plate_number">رقم لوحة المركبة</string>
+    <string name="vehicle_model">موديل المركبة</string>
+    <string name="iben_number">رقم الآيبان البنكي</string>
+    <string name="terms_and_conditions">الشروط والأحكام</string>
+    <string name="agree_terms_and_conditions">أنا اوافق على كافة </string>
+    <string name="forgot_password">Forgot \nPassword</string>
+    <string name="forgot_password_text">أدخل رقم الجوال وسنرسل لك رمزًا لإعادة تعيين كلمة المرور الخاصة بك</string>
+    <string name="send">ارسال</string>
+    <string name="phone_number">رقم الجوال</string>
+    <string name="reset_password">اعد ضبط كلمة المرور</string>
+    <string name="reset_password_text">ادخل كلمة مرور جديدة  </string>
+    <string name="new_password">كلمة مرور جديدة</string>
+    <string name="confirm_new_password">تأكيد كلمة المرور الجديدة</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="enter_code">ادخل رمز التحقق</string>
+    <string name="enter_code_text">فضلا ادخل رمز التحقق المرسل إليكم</string>
+    <string name="enter_code_text2">ادخل الرمز المرسل إليكم</string>
+    <string name="timer">إعادة إرسال الرمز في   ثانية </string>
+    <string name="timer2"> لم تستلم الرمز بعد ؟ </string>
+    <!--    TODO: delete time-->
+    <string name="time">  ثانية / ثواني</string>
+    <string name="time2"> أعد الإرسال</string>
+    <string name="continue_text">استمر</string>
+
+    <string name="verification_text">اختر طريقة الحصول على رمز التحقق:</string>
+    <string name="report_issue">نوع المشكلة؟</string>
+    <string name="issue1">كان مندوب التوصيل غيرجيد</string>
+    <string name="issue2">استغرق وقت طويل جداً</string>
+    <string name="issue3">مشكلة أخرى</string>
+
+    <string name="issue_placeholder">اكتب تفاصيل أكثر للمشكلة</string>
+    <string name="issue_text">Trip ID #</string>
+
+    <string name="submit">إرسال</string>
+
+    <string name="my_profile_text">ملفي الشخصي</string>
+
+    <string name="driver_name_text">Ajmal Akeem Khan</string>
+    <string name="driver_name_No_name">User</string>
+
+    <string name="trip_history_text">سجل الرحلات</string>
+    <string name="payment_history_text">سجل الدفعات</string>
+    <string name="edit_profile_text">تعديل الملف الشخصي</string>
+    <string name="change_number_text">تغيير رقم الجوال  </string>
+    <string name="change_pass_text">تغيير كلمة المرور</string>
+    <string name="switch_to_arabic_text">تحويل إلى اللغة العربية</string>
+    <string name="logout_text">تسجيل الخروج</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="logout_small_text">هل أنت متأكد؟ سيؤدي تسجيل الخروج من التطبيق عدم وصول إشعارات الطلبات إليك </string>
+
+    <string name="are_sure">هل أنت متأكد؟</string>
+    <string name="are_sure_small_text">من خلال إلغاء هذه الرحلة سيحصل سائق آخر على الطلب</string>
+
+    <string name="change_number">تغيير رقم الجوال</string>
+    <string name="change_number_small_text">لتغيير رقم الجوال, ادخل  كلمة المرور ورقم الجوال الجديد</string>
+
+    <string name="type_password">اكتب كلمة المرور</string>
+    <string name="new_phone_no">رقم جوال جديد</string>
+
+    <string name="change_password">تغيير كلمة المرور الخاصة بك</string>
+    <string name="change_password_small_text">لتغيير كلمة المرور الخاصة بك اكتب كلمة المرور القديمة أولاً</string>
+    <string name="old_password">كلمة المرور القديمة</string>
+
+
+    <string name="total_ride_text">إجمالي الرحلات</string>
+    <string name="total_ride">734</string>
+
+    <string name="total_earn_text">إجمالي الدخل</string>
+    <string name="total_earn">SAR </string>
+    <string name="earn1">SAR 45,345</string>
+
+    <string name="earn">SAR </string>
+
+
+    <string name="date1">6th Mar, 2020</string>
+    <string name="date2">6th Fab, 2020</string>
+    <string name="date3">6th Jan, 2020</string>
+    <string name="date4">June 14, 09:24am</string>
+
+
+    <string name="history_id">#4GH36J</string>
+    <string name="trip_code">#</string>
+    <string name="rides_text">رحلة</string>
+    <string name="rides">234</string>
+
+    <string name="paid_text">مدفوع</string>
+    <string name="all_text">الكل</string>
+    <string name="unpaid_text">غير مدفوع</string>
+
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+
+    <string name="name1">Rakkah, Al khabar 31952</string>
+    <string name="name2">Al Muntazah, khamis Mushait</string>
+    <string name="complete_text">مكتملة</string>
+
+    <string name="complete">مكتملة</string>
+    <string name="total">المجموع</string>
+    <string name="confirm_your_delivery">تأكيد عملية التوصيل</string>
+    <string name="confirm_your_delivery_warning">اذا لم تؤكد تسليمك فستنتهي صلاحيته في / ويمكنك النقرعلى إلغاء واختيار موعد آخر مناسب لك لاستلام الطلب</string>
+    <string name="expire_date">17th Jan, 2020 07:24 pm</string>
+    <string name="cancel">إلغاء</string>
+    <string name="confirm">تأكيد</string>
+    <string name="please_wait">فضلا الانتظار </string>
+    <string name="please_wait_warning">فضلا الانتظار شحنتك جاهزة للإستلام وسيكون مندوب التوصيل في طريقه إليك</string>
+    <string name="please_wait_warning_1"> لا توجد طلبات للتسليم حتى الان </string>
+
+    <string name="say_otp">من فضلك قم بتسليم السائق رمز التحقق الذي تلقيته الان على جوالك من أجل تأكيد وصول الشحنة</string>
+    <string name="enjoy">شكرا لك</string>
+    <string name="delivery_complete">تم تسليم الطلب الخاص بك بنجاح</string>
+    <string name="problem">هل لديك ملاحظة؟</string>
+    <string name="cancel_text">التسليم الخاص بك منتهي الصلاحية / تم إلغاؤه</string>
+    <string name="no">لا</string>
+    <string name="yes">نعم</string>
+
+    <string name="type_track">ادخل رقم تتبع الشحنة</string>
+    <string name="type_track_text">بإضافة رقم تتبع الشحنة الخاص بك ، يمكنك تتبع شحنتك و الموافقة على موعد استلامها</string>
+    <string name="track">تتبع</string>
+
+    <string name="warning">تنبيه</string>
+    <string name="warning_text">إذا أكدت إعادة جدولة رحلتك ، فلا يمكن تعديلها مرة أخرى</string>
+
+    <string name="day1">Friday</string>
+    <string name="day2">Saturday</string>
+    <string name="day3">Sunday</string>
+
+    <string name="date5">January 14, 2020</string>
+    <string name="date6">January 15, 2020</string>
+    <string name="date7">January 16, 2020</string>
+
+    <string name="time3">صباحاً</string>
+    <string name="time4">من بعد الظهر</string>
+    <string name="time5">مساءاً</string>
+
+    <string name="time_num1">5:00 AM - 11:59 AM</string>
+    <string name="time_num2">12:00 PM - 4:59 PM</string>
+    <string name="time_num3">5:00 PM - 10:00 PM</string>
+
+    <string name="done">تم</string>
+    <string name="rescheduled">تم إعادة جدولة موعد وصول شحنتك بنجاح</string>
+
+    <string name="ready_to_delivery">جاهز للتوصيل</string>
+    <string name="in_delivery">في الطريق</string>
+    <string name="delivered">تم التوصيل</string>
+    <string name="set_schedule">جدول زمني محدد</string>
+
+    <string name="filter_text">فرز</string>
+    <string name="company_name_text">Here is company name very long two line example</string>
+    <string name="company_name">Dar Al Arkan Real Estate \nCompany</string>
+    <string name="demo_address">Al Mukarrahmah Rd, Riyadh 12622</string>
+    <string name="demo_address2">King Abdul Aziz Rd, Ajyad, Mecca 24231 \nSaudi Arabia</string>
+
+
+    <string name="details">تفاصيل</string>
+    <string name="trip_id">رقم الرحلة</string>
+    <string name="time_text">الوقت</string>
+    <string name="pick_up_point">موقع إستلام الشحنة</string>
+    <string name="delivery_point">موقع التسليم النهائي للشحنة</string>
+
+    <string name="accept">قبول</string>
+    <string name="default_word_count">\0/140</string>
+
+    <string name="word_count">\/140</string>
+    <string name="name">Name: </string>
+
+
+    <string name="ready_for_delivery_line1">قسم "جاهز للتسليم"</string>
+    <string name="ready_for_delivery_line2">في انتظار رد العميل للموافقة لاستقبال الطلب</string>
+    <string name="ready_for_delivery_line3">التجهيز للتوصيل</string>
+
+    <string name="in_delivery_line1">قسم "في الطريق"</string>
+    <string name="in_delivery_line2">في هذا القسم عليك الذهاب إلى موقع العميل \n\nتذكر أنه عند النقر على قسم "في الطريق" سيتمكن العميل من تتبعك مباشرة  من خلال عرض الخريطة</string>
+
+    <string name="delivered_line1">قسم "تم التسليم"</string>
+    <string name="delivered_line2">فضلا سلم المنتج للعميل</string>
+    <string name="delivered_line3">تلقي رمز التحقق من العميل</string>
+
+    <string name="trip_verification_text1">يرجى طلب رمز</string>
+    <string name="trip_verification_text2"> التحقق من العميل</string>
+    <string name="trip_verification_text3"> لإغلاق الرحلة</string>
+    <string name="success">شكراً لك</string>
+    <string name="update">تحديث</string>
+
+    <string name="user_info">معلومات المستخدم</string>
+    <string name="other_info">معلومات أخرى</string>
+
+
+    <string name="ex_name">Ahmed Hassan</string>
+    <string name="ex_email">example@gmail.com</string>
+    <string name="ex_city">Riyadh</string>
+    <string name="ex_city_code">12233</string>
+    <string name="ex_address">Granada Center, Olaya Street.</string>
+    <string name="ex_code">845673495687544</string>
+    <string name="ex_id">JGH - 34578</string>
+    <string name="ex_amg">AMG GT</string>
+    <string name="ex_code_num">SA89 3704 0044 0532 0130 00</string>
+    <string name="status">الحالة</string>
+    <string name="expire">منتهية الصلاحية</string>
+    <string name="delivery_warning_text">فضلا الانتظار حتى يوافق العميل على موعد التسليم</string>
+    <string name="error_gif">خطأ Gif</string>
+    <string name="location_updated">تم تحديث الموقع</string>
+
+    <string name="server_error_customer">تحقق من اتصالك بالإنترنت</string>
+    <string name="server_error">خطأ في الخادم</string>
+    <string name="email_input_toast">من فضلك قل لي بريدك الإلكتروني</string>
+    <string name="something_wrong">هناك شئ غير صحيح! ارجوك تعال</string>
+    <string name="report_recorded">تم تسجيل تقريرك</string>
+    <string name="wrong_email">البريد الإلكتروني المدخل خاطئ</string>
+    <string name="email_or_pass_wrong">البريد الإلكتروني أو كلمة المرور خاطئة</string>
+    <string name="field_not_empty">لا يمكن أن تكون الحقول فارغة</string>
+    <string name="pass_not_match">لم لا تتطابق مع كلمة المرور</string>
+    <string name="fill_all_fields">يرجى ملء جميع الحقول</string>
+    <string name="already_exist_email">هذا البريد الإلكتروني موجود بالفعل! من فضلك حاول مع واحد مختلف</string>
+    <string name="enter_trackid">الرجاء إدخال معرف المسار الخاص بك</string>
+    <string name="trip_expire">انتهت هذه الرحلة</string>
+    <string name="invalid_status">حالة غير صالحة</string>
+    <string name="password_wrong">كلمة المرور خاطئة</string>
+    <string name="verification_code_wrong">رمز التحقق أو كلمة المرور خاطئة</string>
+    <string name="permission_denied">طلب الاذن مرفوض</string>
+    <string name="city_text">مدينة</string>
+    <string name="invalid_email">بريد إلكتروني خاطئ</string>
+
+
+</resources>

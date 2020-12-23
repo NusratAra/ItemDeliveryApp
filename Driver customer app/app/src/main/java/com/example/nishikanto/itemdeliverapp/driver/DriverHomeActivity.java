@@ -1,8 +1,14 @@
 package com.example.nishikanto.itemdeliverapp.driver;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +23,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +32,8 @@ import com.example.nishikanto.itemdeliverapp.ItemDeliveryApplication;
 import com.example.nishikanto.itemdeliverapp.R;
 import com.example.nishikanto.itemdeliverapp.adapter.DeliveryPendingAdapter;
 import com.example.nishikanto.itemdeliverapp.driver.profile.DriverProfileActivity;
+import com.example.nishikanto.itemdeliverapp.location.LocationUpdatesService;
+import com.example.nishikanto.itemdeliverapp.location.MyReceiver;
 import com.example.nishikanto.itemdeliverapp.model.Trip;
 import com.example.nishikanto.itemdeliverapp.model.Trips;
 import com.example.nishikanto.itemdeliverapp.model.User;
@@ -36,11 +45,13 @@ import com.example.nishikanto.itemdeliverapp.utils.BaseUrlUtils;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.GsonBuilder;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
-import br.com.safety.locationlistenerhelper.core.LocationTracker;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,7 +90,43 @@ public class DriverHomeActivity extends AppCompatActivity {
 
     private ActionBar actionBar;
     private ArrayList<Trip> tripArrayList;
-    private LocationTracker locationTracker;
+
+
+
+
+    // The BroadcastReceiver used to listen from broadcasts from the service.
+    private MyReceiver myReceiver;
+
+    // A reference to the service used to get location updates.
+    private LocationUpdatesService mService = null;
+
+    // Tracks the bound state of the service.
+    private boolean mBound = false;
+
+
+    // Monitors the state of the connection to the service.
+    private final ServiceConnection mServiceConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            LocationUpdatesService.LocalBinder binder = (LocationUpdatesService.LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+
+            mService.requestLocationUpdates();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+            mBound = false;
+        }
+    };
+
+
+
+
+
 
 
 
@@ -103,10 +150,10 @@ public class DriverHomeActivity extends AppCompatActivity {
 //        recyclerView.setVisibility(View.GONE);
 //        filterLayout.setVisibility(View.GONE);
 
+        updateLocation();
+
         getDriverProfileCall();
         allTripCall();
-
-        locationUpdate();
 
         if(tripArrayList != null){
 
@@ -117,25 +164,61 @@ public class DriverHomeActivity extends AppCompatActivity {
 
     }
 
+    private void updateLocation() {
+        myReceiver = new MyReceiver();
+    }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        locationTracker.onRequestPermission(requestCode, permissions, grantResults);
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    protected void onStart() {
+        super.onStart();
+
+        AndPermission.with(this)
+                .runtime()
+                .permission(Permission.ACCESS_COARSE_LOCATION)
+                .permission(Permission.ACCESS_FINE_LOCATION)
+                .onGranted(permissions -> {
+                    // Storage permission are allowed.
+                    bindService(new Intent(this, LocationUpdatesService.class), mServiceConnection,
+                            Context.BIND_AUTO_CREATE);
+                })
+                .onDenied(permissions -> {
+                    // Storage permission are not allowed.
+                    finish();
+                })
+                .start();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LocalBroadcastManager.getInstance(this).registerReceiver(myReceiver,
+                new IntentFilter(LocationUpdatesService.ACTION_BROADCAST));
+//        languageSwitch();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(myReceiver);
+    }
+
+    @Override
+    protected void onStop() {
+        if (mBound) {
+            // Unbind from the service. This signals to the service that this activity is no longer
+            // in the foreground, and the service can respond by promoting itself to a foreground
+            // service.
+            unbindService(mServiceConnection);
+            mBound = false;
+        }
+        super.onStop();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        locationTracker.stopLocationService(this);
-    }
-
-    private void locationUpdate() {
-
-        locationTracker=new LocationTracker("my.action")
-                .setInterval(1000)
-                .setGps(true)
-                .setNetWork(false)
-                .start(getBaseContext(), this);
+        mService.removeLocationUpdates();
     }
 
     private void initProfilePic() {
@@ -159,7 +242,8 @@ public class DriverHomeActivity extends AppCompatActivity {
         Trips trips = new Trips();
 
         token = "Bearer "+ dataUtils.getStr("access");
-//        userId = 1;
+        //////////////////////////////////////
+//        userId = 3;
 
         if(userId != 0){
             Log.d(TAG, "USERID: "+ userId);
@@ -196,13 +280,13 @@ public class DriverHomeActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<Trips> call, Throwable t) {
                     if (t instanceof NoConnectivityException) {
-                        Log.e(TAG, "onFailureThrowExTrip: " + t.getMessage());
-                        Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                        Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                         toast.show();
                     } else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                         toast.show();
-                        Log.d(TAG, "onFailureTrip: " + t.getMessage());
+                        Log.d(TAG, "onFailure: " + t.getMessage());
                     }
                 }
             });
@@ -248,10 +332,10 @@ public class DriverHomeActivity extends AppCompatActivity {
                 public void onFailure(Call<User> call, Throwable t) {
                     if (t instanceof NoConnectivityException) {
                         Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                        Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                         toast.show();
                     } else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                         toast.show();
                         Log.d(TAG, "onFailure: " + t.getMessage());
                     }
@@ -411,4 +495,28 @@ public class DriverHomeActivity extends AppCompatActivity {
 
         }
     };
+
+
+    private void languageSwitch() {
+        if(dataUtils.getStr("lang").equals("en")){
+            setLocal("en");
+            recreate();
+        } else if(dataUtils.getStr("lang").equals("ar")){
+            setLocal("ar");
+            recreate();
+        }
+    }
+
+    private void setLocal(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+        dataUtils.setStr("lang", lang);
+
+    }
+
+
 }

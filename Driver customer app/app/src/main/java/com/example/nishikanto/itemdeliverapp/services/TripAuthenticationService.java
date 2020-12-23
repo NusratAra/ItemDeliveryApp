@@ -1,12 +1,12 @@
 package com.example.nishikanto.itemdeliverapp.services;
 
+import com.example.nishikanto.itemdeliverapp.model.DriverLocation;
 import com.example.nishikanto.itemdeliverapp.model.Issues;
 import com.example.nishikanto.itemdeliverapp.model.NewIssue;
+import com.example.nishikanto.itemdeliverapp.model.PaymentHistory;
 import com.example.nishikanto.itemdeliverapp.model.SingleTrip;
 import com.example.nishikanto.itemdeliverapp.model.Trip;
 import com.example.nishikanto.itemdeliverapp.model.Trips;
-
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -36,8 +36,8 @@ public interface TripAuthenticationService {
     @FormUrlEncoded
     @PUT("api/trips/reschedule-trip/{id}")
     Call<SingleTrip> rescheduleTrack(@Path(value = "id", encoded = true) int id,
-                                @Field("date") String date,
-                                @Field("slot") String slot);
+                                     @Field("date") String date,
+                                     @Field("slot") String slot);
 
     @PUT("api/customer-accept-trip/{id}")
     Call<SingleTrip> acceptByCustomer(@Path(value = "id", encoded = true) int id);
@@ -54,7 +54,24 @@ public interface TripAuthenticationService {
                                @Field("text") String text,
                                @Field("issue") int issue);
 
+    @FormUrlEncoded
     @PUT("api/update-driver-location")
-    Call<JSONObject> updateLocation(@Header("Authorization") String  token);
+    Call<DriverLocation> updateLocation(@Header("Authorization") String  token,
+                                        @Field("current_lat") String current_lat,
+                                        @Field("current_long") String current_long);
+
+    @FormUrlEncoded
+    @PUT("api/trips/update/{id}")
+    Call<SingleTrip> updateTrip(@Header("Authorization") String  token,
+                                @Path(value = "id", encoded = true) int id,
+                                @Field("status") int status,
+                                @Field("driver_id") int driver_id,
+                                @Field("code") int code);
+
+    @GET("api/driver-payment-history")
+    Call<PaymentHistory> getPaymentHistory(@Header("Authorization") String  token);
+
+    @GET("api/trips/")
+    Call<Trips> getTripHistory(@Header("Authorization") String  token);
 
 }

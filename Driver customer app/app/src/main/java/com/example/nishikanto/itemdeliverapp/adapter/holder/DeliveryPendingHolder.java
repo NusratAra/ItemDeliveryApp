@@ -192,10 +192,10 @@ public class DeliveryPendingHolder extends RecyclerView.ViewHolder implements Vi
             public void onFailure(Call<Trip> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(activity, "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(activity, activity.getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(activity, "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(activity, activity.getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

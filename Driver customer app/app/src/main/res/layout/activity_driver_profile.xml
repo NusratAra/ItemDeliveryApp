@@ -47,6 +47,7 @@
                     android:layout_height="64dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:src="@drawable/man1"
@@ -59,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_toRightOf="@id/driver_profile_pic"
                     android:thumb="@drawable/profile_switch_thumb_custom"
@@ -73,7 +75,9 @@
                     android:layout_alignParentRight="true"
                     android:gravity="right"
                     android:layout_marginTop="4dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:layout_toRightOf="@id/driver_profile_pic"
                     android:fontFamily="@font/poppins_regular"
@@ -86,6 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/driver_profile_pic"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_medium"
@@ -101,6 +106,7 @@
                     android:background="@drawable/custom_linear_layout"
                     android:orientation="vertical"
                     android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
                     android:paddingTop="30dp"
                     android:paddingBottom="30dp">
 
@@ -136,6 +142,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="left"
                             android:text="@string/trip_history_text"
@@ -176,6 +183,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="left"
                             android:text="@string/payment_history_text"
@@ -216,6 +224,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="left"
                             android:text="@string/edit_profile_text"
@@ -255,6 +264,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="left"
                             android:text="@string/change_number_text"
@@ -294,6 +304,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="left"
                             android:text="@string/change_pass_text"
@@ -303,6 +314,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/switch_to_arabic_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -332,6 +344,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="left"
                             android:text="@string/switch_to_arabic_text"
@@ -353,7 +366,8 @@
                     android:background="@drawable/control_switch_background_border"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
-                    android:paddingLeft="30dp">
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp">
 
                     <FrameLayout
                         android:layout_width="wrap_content"
@@ -378,6 +392,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="left"
                         android:text="@string/logout_text"

@@ -122,7 +122,7 @@ public class SignupPage2Activity extends AppCompatActivity {
                     //undo later
                     //showDialog();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Please fill up all fields!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.fill_all_fields), Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
@@ -324,7 +324,7 @@ public class SignupPage2Activity extends AppCompatActivity {
                 }
                 if (response.errorBody() != null) {
                     Toast.makeText(getApplicationContext(),
-                            "This email already exists! Please try with a different one.",
+                            getString(R.string.already_exist_email),
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -336,10 +336,10 @@ public class SignupPage2Activity extends AppCompatActivity {
             public void onFailure(Call<JsonElement> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

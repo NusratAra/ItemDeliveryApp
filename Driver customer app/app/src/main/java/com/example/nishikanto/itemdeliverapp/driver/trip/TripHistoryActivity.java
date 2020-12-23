@@ -1,10 +1,12 @@
 package com.example.nishikanto.itemdeliverapp.driver.trip;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -15,7 +17,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nishikanto.itemdeliverapp.R;
 import com.example.nishikanto.itemdeliverapp.adapter.TripHistoryAdapter;
+import com.example.nishikanto.itemdeliverapp.model.Trip;
+import com.example.nishikanto.itemdeliverapp.model.Trips;
+import com.example.nishikanto.itemdeliverapp.services.NoConnectivityException;
+import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
+import com.example.nishikanto.itemdeliverapp.services.TripAuthenticationService;
+import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TripHistoryActivity extends AppCompatActivity {
 
@@ -42,6 +57,8 @@ public class TripHistoryActivity extends AppCompatActivity {
     private ImageView tik_all;
     private ImageView tik_complete;
     private ImageView tik_expired;
+    private TextView totalEarn;
+    private ArrayList<Trip> tripArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +68,8 @@ public class TripHistoryActivity extends AppCompatActivity {
         initToolbar();
         initView();
 
+        tripHistoryCall();
+
         text_all.setOnClickListener(textAllListener);
         text_complete.setOnClickListener(textCompleteListener);
         text_expired.setOnClickListener(textExpiredListener);
@@ -59,10 +78,49 @@ public class TripHistoryActivity extends AppCompatActivity {
         bottomSheetClick();
 
         //TODO: funnel icon
-        initRecyclerView();
+
 
     }
 
+    private void tripHistoryCall() {
+
+        DataUtils dataUtils = new DataUtils(getApplicationContext());
+        String token = "Bearer "+ dataUtils.getStr("access");
+        tripArrayList = new ArrayList<>();
+
+        TripAuthenticationService tripAuthenticationService = RetrofitInstance.getServiceCall(getApplicationContext());
+        Call<Trips> tripCall = tripAuthenticationService.getTripHistory(token);
+        tripCall.enqueue(new Callback<Trips>() {
+            @Override
+            public void onResponse(Call<Trips> call, Response<Trips> response) {
+                if(response.body() != null){
+                    Log.d(TAG, "TripHistory: "+ new GsonBuilder().setPrettyPrinting().create().toJson(response.body()));
+                    Log.d(TAG, "Total: "+ response.body().getTotal());
+                    totalEarn.setText(getString(R.string.earn)+" "+response.body().getTotal());
+                    initRecyclerView(response.body().getTrips());
+
+                }
+                if(response.errorBody() != null){
+                    Log.d(TAG, "onResponseE: "+ response.message());
+                    Log.d(TAG, "TripHistoryError: "+ new GsonBuilder().setPrettyPrinting().create().toJson(response.errorBody()));
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Trips> call, Throwable t) {
+                if (t instanceof NoConnectivityException) {
+                    Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
+                    toast.show();
+                    Log.d(TAG, "onFailure: " + t.getMessage());
+                }
+            }
+        });
+    }
 
 
     private void bottomSheetClick() {
@@ -92,7 +150,7 @@ public class TripHistoryActivity extends AppCompatActivity {
         });
     }
 
-    private void initRecyclerView() {
+    private void initRecyclerView(ArrayList<Trip> trips) {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_payment);
         recyclerView.setHasFixedSize(true);
@@ -100,7 +158,7 @@ public class TripHistoryActivity extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        tripHistoryAdaper = new TripHistoryAdapter(this);
+        tripHistoryAdaper = new TripHistoryAdapter(this, trips);
         recyclerView.setAdapter(tripHistoryAdaper);
 
     }
@@ -122,6 +180,8 @@ public class TripHistoryActivity extends AppCompatActivity {
         text_complete = findViewById(R.id.text_complete);
         text_expired = findViewById(R.id.text_expired);
         text_cancel = findViewById(R.id.text_cancel);
+
+        totalEarn = findViewById(R.id.total_earn);
     }
 
     private void initToolbar() {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.nishikanto.itemdeliverapp.ItemDeliveryApplication;
 import com.example.nishikanto.itemdeliverapp.R;
 import com.example.nishikanto.itemdeliverapp.model.SingleTrip;
+import com.example.nishikanto.itemdeliverapp.services.NoConnectivityException;
 import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
 import com.example.nishikanto.itemdeliverapp.services.TripAuthenticationService;
 import com.google.gson.GsonBuilder;
@@ -108,7 +110,15 @@ public class ScheduleTimeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<SingleTrip> call, Throwable t) {
-                Log.d(TAG, "onFailure: "+ t.getMessage());
+                if (t instanceof NoConnectivityException) {
+                    Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), getActivity().getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(), getActivity().getString(R.string.server_error), Toast.LENGTH_SHORT);
+                    toast.show();
+                    Log.d(TAG, "onFailure: " + t.getMessage());
+                }
             }
         });
 

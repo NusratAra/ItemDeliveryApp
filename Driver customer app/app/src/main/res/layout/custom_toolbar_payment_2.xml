@@ -79,7 +79,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/history_id"
+                android:id="@+id/trip_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -87,7 +87,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="right"
-                android:text="@string/history_id"
+                android:text="@string/trip_code"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -103,6 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="32dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
@@ -115,6 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
@@ -135,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/rides"
@@ -145,6 +148,7 @@
                 android:id="@+id/paid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_medium"

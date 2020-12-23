@@ -62,7 +62,7 @@ public class TypeTrackIdActivity extends AppCompatActivity {
                 if(!isEmptyTrackId(trackId.getText().toString())){
                     trackIdCall(trackId.getText().toString());
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please enter your track id.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.enter_trackid), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -91,7 +91,7 @@ public class TypeTrackIdActivity extends AppCompatActivity {
                     finish();
                 }
                 if(response.errorBody() != null){
-                    Toast.makeText(getApplicationContext(), "This trip was expired!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.trip_expire), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -99,10 +99,10 @@ public class TypeTrackIdActivity extends AppCompatActivity {
             public void onFailure(Call<SingleTrip> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

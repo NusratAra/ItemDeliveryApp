@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Twsl</string>
-    <string name="app_title">Twsl.com.sa</string>
-    <string name="app_title_ar">توصل.كوم</string>
+    <string name="app_name">BLINK</string>
+<!--    <string name="app_title">Twsl.com.sa</string>-->
+<!--    <string name="app_title_ar">توصل.كوم</string>-->
     <string name="select_way_customer">Customer login to approve and track shipment</string>
     <string name="select_way_driver">Driver login/sign up</string>
     <string name="login_text">Let\'s Start with \nLogin</string>
@@ -95,7 +95,7 @@
     <string name="total_ride">734</string>
 
     <string name="total_earn_text">Total Earn</string>
-    <string name="total_earn">SAR 32,234</string>
+    <string name="total_earn">SAR </string>
     <string name="earn1">SAR 45,345</string>
 
     <string name="earn">SAR </string>
@@ -108,6 +108,7 @@
 
 
     <string name="history_id">#4GH36J</string>
+    <string name="trip_code">#</string>
     <string name="rides_text">Rides</string>
     <string name="rides">234</string>
 
@@ -189,7 +190,7 @@
     <string name="default_word_count">\0/140</string>
 
     <string name="word_count">\/140</string>
-    <string name="name">Name: Mahmud Ali</string>
+    <string name="name">Name: </string>
 
 
     <string name="ready_for_delivery_line1">“Ready for delivery” Section</string>
@@ -226,6 +227,27 @@
     <string name="expire">Expired</string>
     <string name="delivery_warning_text">Please wait until the customer approve for delivery</string>
     <string name="error_gif">Gif error!</string>
+    <string name="location_updated">Location Updated</string>
+
+    <string name="server_error_customer">Check your internet connection.</string>
+    <string name="server_error">Server Error!</string>
+    <string name="email_input_toast">Please give your email!</string>
+    <string name="something_wrong">Something is wrong! Please try again.</string>
+    <string name="report_recorded">Your report is recorded.</string>
+    <string name="wrong_email">Entered email is wrong!</string>
+    <string name="email_or_pass_wrong">Email or password wrong!</string>
+    <string name="field_not_empty">Fields cannot be empty!</string>
+    <string name="pass_not_match">Password did not match</string>
+    <string name="fill_all_fields">Please fill up all fields!</string>
+    <string name="already_exist_email">This email already exists! Please try with a different one.</string>
+    <string name="enter_trackid">Please enter your track id.</string>
+    <string name="trip_expire">This trip was expired!</string>
+    <string name="invalid_status">Invalid Status!</string>
+    <string name="password_wrong">Password wrong!</string>
+    <string name="verification_code_wrong">Verification code or password wrong!</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="city_text">City</string>
+    <string name="invalid_email">Invalid email</string>
 
 
 </resources>

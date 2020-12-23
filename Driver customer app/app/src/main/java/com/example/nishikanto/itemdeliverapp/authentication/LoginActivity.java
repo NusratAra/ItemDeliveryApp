@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(!isFieldEmpty()){
                     loginAuth(email.getText().toString(), password.getText().toString());
                 } else {
-                    Toast.makeText(getApplicationContext(), "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.field_not_empty), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(getApplicationContext(), "Email or password wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.email_or_pass_wrong), Toast.LENGTH_SHORT).show();
                 }
 //                Log.d(TAG, "onResponseAccess: " + response.body().getAccess());
 
@@ -158,14 +158,14 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserCredential> call, Throwable t) {
-                if(t instanceof NoConnectivityException){
-                    Log.e(TAG, "onFailureThrowEx: "+ t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                if (t instanceof NoConnectivityException) {
+                    Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
-                    Log.d(TAG, "onFailure: "+ t.getMessage());
+                    Log.d(TAG, "onFailure: " + t.getMessage());
                 }
                 progressDialog.dismiss();
             }
@@ -193,10 +193,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

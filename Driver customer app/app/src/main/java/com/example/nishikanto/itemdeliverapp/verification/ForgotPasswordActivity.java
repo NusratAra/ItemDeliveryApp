@@ -63,7 +63,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 if(!isFieldEmpty()){
                     forgetPasswordCall(email.getText().toString());
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please give your email!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.email_input_toast), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -98,7 +98,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 if (response.errorBody() != null) {
                     progressDialog.dismiss();
                     Log.d(TAG, "SuccessResponseErrorBody: " + response.errorBody());
-                    Toast.makeText(getApplicationContext(), "Entered email is wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.wrong_email), Toast.LENGTH_SHORT).show();
                 }
                 if(response.isSuccessful()){
                     progressDialog.dismiss();
@@ -108,7 +108,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 } else {
                     progressDialog.dismiss();
                     Log.d(TAG, "onResponse: "+ response.code());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Email or password wrong!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.email_or_pass_wrong), Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
@@ -117,10 +117,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             public void onFailure(Call<JSONObject> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
                 }

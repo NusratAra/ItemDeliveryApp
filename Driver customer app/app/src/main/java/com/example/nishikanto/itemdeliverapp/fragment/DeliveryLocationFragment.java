@@ -320,7 +320,7 @@ public class DeliveryLocationFragment extends Fragment implements OnMapReadyCall
                         mMap.setMyLocationEnabled(true);
                     }
                 } else {
-                    Toast.makeText(this.getContext(), "permission denied",
+                    Toast.makeText(this.getContext(), this.getString(R.string.permission_denied),
                             Toast.LENGTH_LONG).show();
                 }
                 return;

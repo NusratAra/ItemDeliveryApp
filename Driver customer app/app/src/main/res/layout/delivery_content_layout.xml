@@ -47,6 +47,7 @@
                 android:background="@drawable/custom_button_white_border"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/time_text"
                 android:textAlignment="center"
@@ -80,6 +81,7 @@
                 android:background="@drawable/custom_button_white_border"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/date4"
                 android:textAlignment="textEnd"
@@ -114,6 +116,7 @@
                 android:background="@drawable/custom_button_white_border"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
+                android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/complete"
                 android:textAlignment="textEnd"
@@ -155,6 +158,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
                 android:paddingTop="4dp"
+                android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="4dp"
                 android:text="@string/earn"
@@ -211,6 +215,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/custom_red_layout">
 
             <TextView
@@ -222,6 +227,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center_vertical"
                 android:paddingLeft="30dp"
+                android:paddingRight="30dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="@string/pick_up_point"
@@ -235,6 +241,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:src="@drawable/item_icon1"
                 android:tint="@color/colorWhite" />
 
@@ -304,6 +311,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/custom_green_layout_delivery_point">
 
             <TextView

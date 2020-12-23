@@ -10,18 +10,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nishikanto.itemdeliverapp.R;
 import com.example.nishikanto.itemdeliverapp.adapter.holder.PaymentHistoryHolder;
+import com.example.nishikanto.itemdeliverapp.model.SinglePaymentHistory;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PaymentHistoryAdaper extends RecyclerView.Adapter<PaymentHistoryHolder> {
-    private List<String> dates;
+    private List<SinglePaymentHistory> paymentHistoryList;
     private Activity activity;
 
 
-    public PaymentHistoryAdaper(Activity activity, ArrayList<String> dates) {
-        this.dates = dates;
+    public PaymentHistoryAdaper(Activity activity, ArrayList<SinglePaymentHistory> paymentHistoryList) {
+        this.paymentHistoryList = paymentHistoryList;
         this.activity = activity;
     }
 
@@ -42,13 +42,13 @@ public class PaymentHistoryAdaper extends RecyclerView.Adapter<PaymentHistoryHol
 
     @Override
     public void onBindViewHolder(@NonNull PaymentHistoryHolder holder, int position) {
-        holder.setData(Collections.singletonList(dates.get(position)));
+        holder.setData(paymentHistoryList.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return dates.size();
+        return paymentHistoryList.size();
     }
 }
 

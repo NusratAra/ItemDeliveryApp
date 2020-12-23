@@ -8,5 +8,6 @@ public class BaseUrlUtils {
     public static int READY_FOR_DELIVERY = 4;
     public static int IN_DELIVERY = 5;
     public static int DELIVERED = 6;
+    public static int FINISHED = 7;
 
 }

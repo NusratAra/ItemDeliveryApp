@@ -92,11 +92,11 @@ public class IssueWritingActivity extends AppCompatActivity {
                 if(response.body() != null){
                     Log.d(TAG, "PostedIssue: "+ new GsonBuilder().setPrettyPrinting().create().toJson((response.body())));
                     Toast.makeText(IssueWritingActivity.this,
-                            "Your report is recorded.", Toast.LENGTH_SHORT).show();
+                            getString(R.string.report_recorded), Toast.LENGTH_SHORT).show();
                 }
                 if(response.errorBody() != null){
                     Toast.makeText(IssueWritingActivity.this,
-                            "Something is wrong! Please try again.", Toast.LENGTH_SHORT).show();
+                            getString(R.string.something_wrong), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -104,13 +104,14 @@ public class IssueWritingActivity extends AppCompatActivity {
             public void onFailure(Call<NewIssue> call, Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     Log.e(TAG, "onFailureThrowEx: " + t.getMessage());
-                    Toast toast = Toast.makeText(getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error_customer), Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Server Error!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.server_error), Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d(TAG, "onFailure: " + t.getMessage());
-                }            }
+                }
+            }
         });
     }
 
