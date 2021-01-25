@@ -11,7 +11,7 @@
         android:id="@+id/blurView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       >
+        tools:ignore="ContentDescription">
 
     </ImageView>
 
@@ -20,7 +20,6 @@
         android:background="@drawable/custom_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/enter_code_text"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:layout_margin="10dp"
@@ -30,16 +29,16 @@
             android:id="@+id/cross_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginTop="24dp"
-            android:src="@drawable/cross_icon"/>
+            android:src="@drawable/cross_icon"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/login_text_fix"
             android:text="@string/trip_verification_text1"
             android:textSize="13sp"
             android:fontFamily="@font/poppins_regular"
@@ -62,11 +61,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_below="@id/login_text_fix"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/trip_verification_text2"
                 android:textColor="@color/colorBlackLight"
                 android:textSize="13sp"
@@ -75,11 +73,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_text_fix"
                 android:text="@string/trip_verification_text3"
                 android:textSize="13sp"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="left"
+                android:gravity="start"
                 android:textColor="@color/colorBlackLight"/>
 
 

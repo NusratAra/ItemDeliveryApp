@@ -12,7 +12,8 @@
     android:layout_marginRight="16dp"
     android:layout_marginTop="8dp"
     card_view:cardCornerRadius="20dp"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    tools:targetApi="lollipop">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,7 +67,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
@@ -77,8 +78,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:layout_gravity="right"
-                android:src="@drawable/company_icon1"/>
+                android:layout_gravity="end"
+                android:src="@drawable/company_icon1"
+                tools:ignore="ContentDescription,NestedWeights" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,11 +96,12 @@
                         android:layout_width="8dp"
                         android:layout_height="8dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/item_icon1" />
+                        android:src="@drawable/item_icon1"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/delivery_address"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_gravity="start"
                         android:layout_marginLeft="20dp"
@@ -121,10 +124,11 @@
                         android:layout_width="8dp"
                         android:layout_height="8dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/item_icon2"/>
+                        android:src="@drawable/item_icon2"
+                        tools:ignore="ContentDescription" />
                     <TextView
                         android:id="@+id/pickup_address"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:gravity="start"

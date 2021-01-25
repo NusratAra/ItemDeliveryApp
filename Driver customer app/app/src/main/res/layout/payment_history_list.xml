@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,7 +12,8 @@
     android:layout_marginRight="16dp"
     android:layout_marginTop="8dp"
     card_view:cardCornerRadius="20dp"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    tools:targetApi="lollipop">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +34,8 @@
                 android:text="@string/date1"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:textColor="@color/colorBlackLight"
                 android:fontFamily="@font/poppins_regular"/>
 
@@ -42,9 +45,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="@string/trip_code"
                 android:textColor="@color/colorBlackLight"
                 android:textSize="16sp" />
@@ -63,18 +67,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/rides_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rides_text"
-                android:textSize="16sp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/rides_text"
                 android:textColor="@color/colorGrayDark"
-                android:fontFamily="@font/poppins_regular"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/paid_text"
@@ -85,7 +90,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="@string/paid_text"
                 android:textColor="@color/colorGrayDark"
                 android:textSize="16sp" />
@@ -96,17 +101,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2">
+
             <TextView
                 android:id="@+id/rides"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/rides"
-                android:textSize="16sp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:textColor="@color/colorGreenDark"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/paid"
@@ -116,7 +122,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_medium"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="@string/total_earn"
                 android:textColor="@color/colorGreenDark"
                 android:textSize="16sp" />

@@ -3,6 +3,7 @@ package com.example.nishikanto.itemdeliverapp.adapter.holder;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.nishikanto.itemdeliverapp.R;
 import com.example.nishikanto.itemdeliverapp.driver.payment.PaymentDetailsActivity;
 import com.example.nishikanto.itemdeliverapp.model.SinglePaymentHistory;
+import com.google.gson.GsonBuilder;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -51,6 +53,7 @@ public class PaymentHistoryHolder extends RecyclerView.ViewHolder implements Vie
     public void setData(SinglePaymentHistory singlePaymentHistory) {
         this.singlePaymentHistory = singlePaymentHistory;
         Date date1;
+        Log.d("TAG", "SinglePaymentHistory: "+ new GsonBuilder().setPrettyPrinting().create().toJson(singlePaymentHistory));
 
         try {
             @SuppressLint("SimpleDateFormat")

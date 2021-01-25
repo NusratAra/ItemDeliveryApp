@@ -1,5 +1,7 @@
-<vector android:height="64dp"
+<vector xmlns:tools="http://schemas.android.com/tools"
+    android:height="64dp"
     android:viewportHeight="64" android:viewportWidth="303"
-    android:width="303dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:width="303dp" xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="VectorRaster">
     <path android:fillColor="#F9E4EB" android:pathData="M10,0L293,0A10,10 0,0 1,303 10L303,54A10,10 0,0 1,293 64L10,64A10,10 0,0 1,0 54L0,10A10,10 0,0 1,10 0z"/>
 </vector>

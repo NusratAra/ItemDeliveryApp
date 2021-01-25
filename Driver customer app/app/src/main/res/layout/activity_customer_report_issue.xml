@@ -30,17 +30,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp">
 
-<!--        <ListView-->
-<!--            android:id="@+id/list"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:paddingLeft="24dp"-->
-<!--            android:paddingRight="24dp"-->
-<!--            android:paddingTop="12dp"-->
-<!--            android:paddingBottom="12dp"-->
-<!--            android:divider="@drawable/divider"-->
-<!--            />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_report"
             android:layout_width="match_parent"

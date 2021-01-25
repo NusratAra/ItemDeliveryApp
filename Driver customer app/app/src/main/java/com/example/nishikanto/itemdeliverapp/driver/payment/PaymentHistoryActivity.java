@@ -1,12 +1,15 @@
 package com.example.nishikanto.itemdeliverapp.driver.payment;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,9 @@ import com.example.nishikanto.itemdeliverapp.services.TripAuthenticationService;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 import com.google.gson.GsonBuilder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,6 +48,7 @@ public class PaymentHistoryActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView totalRides;
     private TextView totalEarns;
+    private ImageView calenderFilter;
 
     private int rideNumber;
     private float earnAmount;
@@ -63,10 +69,52 @@ public class PaymentHistoryActivity extends AppCompatActivity {
         historyCall();
     }
 
+    @SuppressLint("SimpleDateFormat")
+    private void calenderFilterCall() {
+
+
+        calenderFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar myCalendar = Calendar.getInstance();
+
+                DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+                        // TODO Auto-generated method stub
+                        myCalendar.set(Calendar.YEAR, year);
+                        myCalendar.set(Calendar.MONTH, monthOfYear);
+                        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                        String strDate = format.format(myCalendar.getTime());
+                        Log.d(TAG, "GetCalenderTime: "+ strDate);
+                        paymentHistoryAdaper.filterItemByDate(strDate);
+                    }
+
+                };
+
+                new DatePickerDialog(PaymentHistoryActivity.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+
+            }
+        });
+
+
+
+
+    }
+
     private void initfindView() {
 
         totalRides = findViewById(R.id.total_ride);
         totalEarns = findViewById(R.id.total_earn);
+        calenderFilter = findViewById(R.id.calender);
     }
 
     @SuppressLint("SetTextI18n")
@@ -101,6 +149,7 @@ public class PaymentHistoryActivity extends AppCompatActivity {
                     Log.d(TAG, "Ride&Earn: "+ rideNumber+ "+"+ earnAmount);
                     paymentSum();
                     recyclerViewCall();
+                    calenderFilterCall();
 
                 }
                 if(response.errorBody() != null){
@@ -136,6 +185,7 @@ public class PaymentHistoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         paymentHistoryAdaper = new PaymentHistoryAdaper(this, paymentHistoryList);
         recyclerView.setAdapter(paymentHistoryAdaper);
+//        paymentHistoryAdaper.filterItemAllDate();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

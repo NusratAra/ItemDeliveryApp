@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/time3"
                 android:textColor="@color/colorBlackLight"
@@ -38,9 +38,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/time_num1"
                 android:textColor="@color/colorGrayDark2"
                 android:textSize="12sp" />
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/time4"
                 android:textColor="@color/colorBlackLight"
@@ -71,9 +71,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/time_num2"
                 android:textColor="@color/colorGrayDark2"
                 android:textSize="12sp" />
@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/time5"
                 android:textColor="@color/colorBlackLight"
@@ -107,9 +107,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/time_num3"
                 android:textColor="@color/colorGrayDark2"
                 android:textSize="12sp" />

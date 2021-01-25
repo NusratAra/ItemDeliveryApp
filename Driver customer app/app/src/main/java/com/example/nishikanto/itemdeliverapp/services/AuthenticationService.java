@@ -100,7 +100,7 @@ public interface AuthenticationService {
                              @Field("address") String address,
                              @Field("iqma_national_id") int iqma_national_id,
                              @Field("vehicale_plate_no") String vehicale_plate_no,
-                             @Field("vehicale_model") int vehicale_model,
+                             @Field("vehicale_model") String vehicale_model,
                              @Field("iebn") int iebn);
 
     @FormUrlEncoded

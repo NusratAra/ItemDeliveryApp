@@ -203,18 +203,6 @@ public class SignupPage1Activity extends AppCompatActivity {
 
     private void imageCallback() {
 
-//        Matisse.from(SignupPage1Activity.this)
-//                .choose(MimeType.ofAll())
-//                .countable(true)
-//                .maxSelectable(9)
-//                .addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
-//                .gridExpectedSize(getResources().getDimensionPixelSize(R.dimen.album_item_height))
-//                .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
-//                .thumbnailScale(0.85f)
-//                .imageEngine(new GlideEngine())
-//                .showPreview(true) // Default is `true`
-//                .forResult(REQUEST_CODE_CHOOSE);
-
         ImagePicker.Companion.with(this)    			//Crop image(Optional), Check Customization for more option
                 .compress(1024)			//Final image size will be less than 1 MB(Optional)
                 .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
@@ -237,11 +225,6 @@ public class SignupPage1Activity extends AppCompatActivity {
 
             setImageToView(imageUrlString);
             Log.d(TAG, "File2: " + imageUrlString);
-//            File file = new File(uri);
-//            RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
-//            Log.d(TAG, "File: " + uri);
-//            MultipartBody.Part body = MultipartBody.Part.createFormData("profile_or_logo", file.getName(), requestFile);
-//            UpdateImageCall(body);
         }
     }
 

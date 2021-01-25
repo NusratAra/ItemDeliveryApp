@@ -1,6 +1,7 @@
 package com.example.nishikanto.itemdeliverapp.driver.profile;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -42,12 +43,12 @@ import com.example.nishikanto.itemdeliverapp.utils.BaseUrlUtils;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
 import com.example.nishikanto.itemdeliverapp.utils.PathUtils;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,7 +68,7 @@ import retrofit2.Response;
 
 public class EditProfileActivity extends AppCompatActivity {
     private static final String TAG = EditProfileActivity.class.getSimpleName();
-    private static final int REQUEST_CODE_CHOOSE = 23;
+    private static final int REQUEST_CODE_CHOOSE = 2404;
     private static String BASE_URL = "http://134.209.102.212";
 
 
@@ -96,6 +97,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private User user;
     private String accessToken;
     private DataUtils dataUtils;
+    private String imageUrl = "";
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("ResourceAsColor")
@@ -125,12 +127,12 @@ public class EditProfileActivity extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                updateProfileCall();
-                if(isEmailValid(email.getText().toString())){
-                    updateProfileCall();
-                } else {
-                    Toast.makeText(getApplicationContext(), getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
-                }
+                updateProfileCall();
+//                if(isEmailValid(email.getText().toString())){
+//                    updateProfileCall();
+//                } else {
+//                    Toast.makeText(getApplicationContext(), getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
@@ -144,18 +146,6 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void imageCallback() {
-//
-//        Matisse.from(EditProfileActivity.this)
-//                .choose(MimeType.ofAll())
-//                .countable(true)
-//                .maxSelectable(9)
-//                .addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
-//                .gridExpectedSize(getResources().getDimensionPixelSize(R.dimen.album_item_height))
-//                .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
-//                .thumbnailScale(0.85f)
-//                .imageEngine(new GlideEngine())
-//                .showPreview(true) // Default is `true`
-//                .forResult(REQUEST_CODE_CHOOSE);
 
         ImagePicker.Companion.with(this)	    			//Crop image(Optional), Check Customization for more option
                 .compress(1024)			//Final image size will be less than 1 MB(Optional)
@@ -166,18 +156,18 @@ public class EditProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: "+ requestCode +"+"+ resultCode);
         if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
 
-//            List<Uri> selectedImage = Matisse.obtainResult(data);
-            List<Uri> selectedImage = (List<Uri>) ImagePicker.Companion.getFile(data);
+            Uri selectedImage = Uri.fromFile(ImagePicker.Companion.getFile(data));
 
-            String  uri = saveBitmap(selectedImage.get(0));
+            String imageUriLocal = saveBitmap(selectedImage);
 
-//            setImageToView(uri);
+            setImageToView(imageUriLocal);
 
-            File file = new File(uri);
+            File file = new File(imageUriLocal);
             RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
-            Log.d(TAG, "File: " + uri);
+            Log.d(TAG, "EditProfileFile: " + imageUriLocal);
             MultipartBody.Part body = MultipartBody.Part.createFormData("profile_or_logo", file.getName(), requestFile);
             UpdateImageCall(body);
         }
@@ -223,7 +213,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     if (response.body() != null) {
                         Log.d(TAG, "ResponseBodyImage: " + response.body().getProfile_or_logo());
                         getUserInfo(response.body());
-                        String  imageUrl = BASE_URL+response.body().getProfile_or_logo();
+                        imageUrl = BASE_URL+response.body().getProfile_or_logo();
                         Glide.with(EditProfileActivity.this).asDrawable()
                                 .load(imageUrl)
                                 .into(circleViewImage);
@@ -282,18 +272,26 @@ public class EditProfileActivity extends AppCompatActivity {
         progressDialog.show();
 
         if(user.getId() != 0){
+            Log.d(TAG, "updateProfileCallName: "+ name.getText().toString());
             AuthenticationService authenticationService = RetrofitInstance.getService(getApplicationContext());
-            Call<User> userCall = authenticationService.updateProfile(accessToken, user.getId(), email.getText().toString(),
-                    name.getText().toString(), spin.getSelectedItem().toString(), postalCode.getText().toString(),
-                    address.getText().toString(), Integer.parseInt(nationalId.getText().toString()),
-                    vehiclePlateNo.getText().toString(), Integer.parseInt(vehiclePlateModel.getText().toString()),
+            Call<User> userCall = authenticationService.updateProfile(accessToken,
+                    user.getId(),
+                    email.getText().toString(),
+                    name.getText().toString(),
+                    spin.getSelectedItem().toString(),
+                    postalCode.getText().toString(),
+                    address.getText().toString(),
+                    Integer.parseInt(nationalId.getText().toString()),
+                    vehiclePlateNo.getText().toString(),
+                    vehiclePlateModel.getText().toString(),
                     Integer.parseInt(ibenNo.getText().toString()));
 
             userCall.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.body() != null) {
-                        Log.d(TAG, "ResponseBody: " + response.body());
+                        Log.d(TAG, "ResponseBody: "+ new GsonBuilder().setPrettyPrinting().create().toJson(response.body()));
+
                         getUserInfo(response.body());
                         onBackPressed();
                     }
@@ -353,6 +351,18 @@ public class EditProfileActivity extends AppCompatActivity {
         ((ItemDeliveryApplication) getApplicationContext()).setUser(user);
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if(!imageUrl.equals("")){
+            Intent resultIntent = new Intent();
+            Log.d(TAG, "onBackPressed: "+ imageUrl);
+            resultIntent.putExtra("image_uri", imageUrl);
+            setResult(Activity.RESULT_OK, resultIntent);
+        }
+
+        super.onBackPressed();
+    }
 
     private void findAllViewValue() {
         name = findViewById(R.id.input_name);
@@ -387,7 +397,6 @@ public class EditProfileActivity extends AppCompatActivity {
             for(int i=0; i<cityName.length; i++){
 
                 if(cityName[i].matches(user.getCity())){
-                    Log.d(TAG, "addFieldValue1: "+ cityName[i]);
                     spin.setSelection(i);
                 } else {
                     Log.d(TAG, "addFieldValue2: "+ cityName[i]);

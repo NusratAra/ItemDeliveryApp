@@ -24,7 +24,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:subtitleTextColor="@color/colorWhite"
-            app:titleTextColor="@color/colorWhite" />
+            app:titleTextColor="@color/colorWhite"
+            tools:ignore="UnusedAttribute" />
 
         <ScrollView
             android:layout_width="match_parent"

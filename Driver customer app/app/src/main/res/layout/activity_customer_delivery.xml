@@ -23,7 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextColor="@color/colorWhite"
-        app:titleTextColor="@color/colorWhite" />
+        app:titleTextColor="@color/colorWhite"
+        tools:targetApi="lollipop" />
 
     <FrameLayout
         android:id="@+id/frame_layout"

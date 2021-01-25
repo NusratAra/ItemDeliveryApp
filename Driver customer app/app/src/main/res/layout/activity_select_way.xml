@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:checked="true"
         android:thumb="@drawable/switch_thumb_custom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,15 +21,16 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_switch"
         app:layout_constraintVertical_bias="0.547"
-        app:srcCompat="@drawable/select_way" />
+        app:srcCompat="@drawable/select_way"
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:id="@+id/customer_layout"
@@ -42,9 +42,9 @@
         android:background="@drawable/custom_button_white_border_select_way"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
         android:paddingTop="10dp"
-        android:paddingRight="4dp"
+        android:paddingEnd="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -60,7 +60,8 @@
             android:layout_gravity="center"
             android:src="@drawable/circle_layout"
             app:layout_constraintHorizontal_bias="0.03"
-            app:layout_constraintVertical_bias="0.83" />
+            app:layout_constraintVertical_bias="0.83"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/customer_text"
@@ -79,36 +80,6 @@
 
     </LinearLayout>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/user_img"-->
-<!--        android:layout_width="64dp"-->
-<!--        android:layout_height="64dp"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:src="@drawable/circle_layout"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView"-->
-<!--        app:layout_constraintHorizontal_bias="0.03"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/imageView"-->
-<!--        app:layout_constraintVertical_bias="0.83" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/customer_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center_vertical"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_toRightOf="@id/user_img"-->
-<!--        android:fontFamily="@font/poppins_medium"-->
-<!--        android:text="@string/select_way_customer"-->
-<!--        android:textColor="@color/colorBlack"-->
-<!--        android:textSize="14sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/user_img"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/user_img"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/user_img" />-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,9 +97,9 @@
             android:id="@+id/driver_img"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_alignParentLeft="true"
             android:layout_gravity="center"
-            android:src="@drawable/circle_layout_driver" />
+            android:src="@drawable/circle_layout_driver"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/driver_text"
@@ -144,34 +115,5 @@
 
 
     </LinearLayout>
-
-<!--    <ImageView-->
-<!--        android:id="@+id/driver_img"-->
-<!--        android:layout_width="64dp"-->
-<!--        android:layout_height="64dp"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:src="@drawable/circle_layout_driver"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/user_img"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/user_img"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/user_img" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/driver_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center_vertical"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_toRightOf="@id/driver_img"-->
-<!--        android:fontFamily="@font/poppins_medium"-->
-<!--        android:text="@string/select_way_driver"-->
-<!--        android:textColor="@color/colorBlack"-->
-<!--        android:textSize="14sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/driver_img"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/driver_img"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/driver_img" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

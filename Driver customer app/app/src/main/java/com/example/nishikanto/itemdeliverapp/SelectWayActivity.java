@@ -2,10 +2,8 @@ package com.example.nishikanto.itemdeliverapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -18,6 +16,7 @@ import androidx.core.content.res.ResourcesCompat;
 import com.example.nishikanto.itemdeliverapp.authentication.LoginActivity;
 import com.example.nishikanto.itemdeliverapp.customer.TypeTrackIdActivity;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
+import com.example.nishikanto.itemdeliverapp.utils.LocaleHelper;
 
 import java.util.Locale;
 
@@ -37,11 +36,12 @@ public class SelectWayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        LocaleHelper.setLocale(this, LocaleHelper.getLanguage(this));
+
         setContentView(R.layout.activity_select_way);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         dataUtils = new DataUtils(getApplicationContext());
-
-
 
         Typeface custom_font = ResourcesCompat.getFont(this, R.font.poppins_medium);
 
@@ -60,39 +60,29 @@ public class SelectWayActivity extends AppCompatActivity {
         customer_img.setOnClickListener(customerClickListener);
         btnSwitch = findViewById(R.id.btn_switch);
 
+
+
         btnSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.d(TAG, "onCheckedChanged: "+ isChecked);
                 if(!isChecked && Locale.getDefault().getLanguage().equals("en")){
-                    setLocal("ar");
+                    LocaleHelper.setLocale(SelectWayActivity.this, "ar");
                     recreate();
                 } else if(isChecked && Locale.getDefault().getLanguage().equals("ar")){
-                    setLocal("en");
+                    LocaleHelper.setLocale(SelectWayActivity.this, "en");
                     recreate();
                 }
-
-
             }
         });
 
-        if(dataUtils.getStr("lang").equals("ar")){
-            btnSwitch.setChecked(false);
-        } else{
+        if(LocaleHelper.getLanguage(SelectWayActivity.this).equals("en")){
             btnSwitch.setChecked(true);
+        }else {
+            btnSwitch.setChecked(false);
         }
-    }
-
-    private void setLocal(String lang) {
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
-
-        Configuration configuration = new Configuration();
-        configuration.locale = locale;
-        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
-        dataUtils.setStr("lang", lang);
 
     }
+
 
     View.OnClickListener customerClickListener = new View.OnClickListener() {
         @Override

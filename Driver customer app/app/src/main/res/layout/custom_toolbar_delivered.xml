@@ -18,7 +18,8 @@
             android:src="@drawable/arrow_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -47,7 +48,8 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ImageView
@@ -57,7 +59,8 @@
         android:layout_marginTop="12dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/delivery4"/>
+        android:src="@drawable/delivery4"
+        tools:ignore="ContentDescription" />
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -69,7 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:src="@drawable/track_3_b"/>
+            android:src="@drawable/track_3_b"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,9 +89,10 @@
             android:id="@+id/btn_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:adjustViewBounds="true"
-            android:src="@drawable/track_3"/>
+            android:src="@drawable/track_3"
+            tools:ignore="ContentDescription" />
     </FrameLayout>
 
     <TextView
@@ -102,7 +107,8 @@
         android:textAlignment="center"
         android:visibility="invisible"
         android:textColor="@color/colorGray"
-        android:fontFamily="@font/poppins_regular"/>
+        android:fontFamily="@font/poppins_regular"
+        tools:ignore="SmallSp" />
 
 
 

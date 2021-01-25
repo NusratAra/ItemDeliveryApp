@@ -12,8 +12,8 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         //TODO email check SignupPage1Activity, EditProfileActivity
-        versionCode 14
-        versionName "0.1.4"
+        versionCode 15
+        versionName "0.1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,16 +34,16 @@ dependencies {
     implementation 'com.github.safetysystemtechnology:location-tracker-background:v1.3'
 
     //noinspection UseOfBundledGooglePlayServices
-    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation "androidx.fragment:fragment:1.2.5"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.navigation:navigation-fragment:2.3.1'
-    implementation 'androidx.navigation:navigation-ui:2.3.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.medyo:fancybuttons:1.9.1'

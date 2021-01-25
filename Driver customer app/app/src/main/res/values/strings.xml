@@ -248,6 +248,7 @@
     <string name="permission_denied">Permission denied</string>
     <string name="city_text">City</string>
     <string name="invalid_email">Invalid email</string>
+    <string name="offline_text">offline</string>
 
 
 </resources>

@@ -1,6 +1,8 @@
-<vector android:height="188dp"
+<vector xmlns:tools="http://schemas.android.com/tools"
+    android:height="188dp"
     android:viewportHeight="188" android:viewportWidth="375"
-    android:width="375dp" xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:width="375dp" xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="VectorRaster">
     <path android:pathData="M0,0h375v232h-375z">
         <aapt:attr name="android:fillColor">
             <gradient android:endX="207.602" android:endY="335.564"

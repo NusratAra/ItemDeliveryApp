@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGray">
@@ -34,7 +35,8 @@
             android:fontFamily="@font/poppins_bold"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:text="@string/login_text"
             android:textColor="@color/colorBlackLight"
             android:textSize="26sp"
@@ -65,7 +67,8 @@
                 android:padding="10dp"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/colorGray"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/input_pass"
@@ -80,7 +83,8 @@
                 android:padding="10dp"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/colorGray"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
 
             <TextView
                 android:id="@+id/forget_pass"
@@ -121,7 +125,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="60dp"
             android:background="@drawable/rectangle"
@@ -132,10 +135,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="2dp"
+                android:layout_marginEnd="2dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/login_to_reg"
                 android:textColor="@color/colorBlackLight"
                 android:textSize="14sp" />

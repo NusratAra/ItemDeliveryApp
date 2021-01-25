@@ -17,7 +17,8 @@
             android:src="@drawable/arrow_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -45,7 +46,8 @@
             android:src="@drawable/issue_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ImageView
@@ -55,7 +57,8 @@
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/delivery1"/>
+        android:src="@drawable/delivery1"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>
 

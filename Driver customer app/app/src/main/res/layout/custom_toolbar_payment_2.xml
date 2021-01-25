@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,10 +17,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:src="@drawable/arrow_back"
-            android:tint="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            app:tint="@color/colorWhite" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -45,11 +47,12 @@
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/payment_menu"
-            android:tint="@color/colorWhite"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            app:tint="@color/colorWhite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,7 +73,8 @@
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginTop="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
@@ -83,10 +87,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="@string/trip_code"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
@@ -120,7 +125,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="@string/paid_text"
                 android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
@@ -152,7 +157,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_medium"
-                android:gravity="right"
+                android:gravity="end"
                 android:text="@string/total_earn"
                 android:textColor="@color/colorWhite"
                 android:textSize="24sp" />

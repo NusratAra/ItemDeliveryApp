@@ -10,7 +10,8 @@
     <ImageView
         android:id="@+id/blur_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="ContentDescription">
     </ImageView>
 
     <LinearLayout
@@ -18,7 +19,6 @@
         android:background="@drawable/custom_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_text_small"
         android:orientation="vertical"
         android:layout_margin="10dp"
         android:layout_gravity="center"
@@ -28,26 +28,28 @@
             android:id="@+id/verification_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/login_text_fix"
             android:text="@string/verification_text"
             android:textSize="16sp"
             android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
-            android:paddingLeft="10dp"
+            android:gravity="start"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/colorBlackLight"/>
 
         <RadioGroup
             android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical">
 
             <RadioButton
@@ -59,7 +61,8 @@
                 android:textColor="@color/colorBlackLight"
                 android:fontFamily="@font/poppins_medium"
                 android:buttonTint="@color/colorMagentaDark"
-                style="@style/MyCheckBox"/>
+                style="@style/MyCheckBox"
+                tools:targetApi="lollipop" />
 
             <RadioButton
                 android:id="@+id/rb_female"
@@ -70,7 +73,8 @@
                 android:textColor="@color/colorBlackLight"
                 android:fontFamily="@font/poppins_medium"
                 android:buttonTint="@color/colorMagentaDark"
-                style="@style/MyCheckBox"/>
+                style="@style/MyCheckBox"
+                tools:targetApi="lollipop" />
         </RadioGroup>
 
         <mehdi.sakout.fancybuttons.FancyButton

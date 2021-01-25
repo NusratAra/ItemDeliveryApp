@@ -13,9 +13,15 @@ public class Trip implements Parcelable {
     private String pickup_area;
     private String pickup_latitude;
     private String pickup_longitude;
+
+    private String pickup_location;
+
     private String delivery_area;
     private String delivery_latitude;
     private String delivery_longitude;
+
+    private String delivery_location;
+
     private int driver_id;
     private String current_location = null;
     private String current_latitude = null;
@@ -27,6 +33,10 @@ public class Trip implements Parcelable {
     private String product_detail;
     private String distance = null;
     private String status;
+
+    private int otp;
+    private String otp_expire_at;
+
     private String reschedule_date = null;
     private String reschedule_start_time = null;
     private String reschedule_end_time = null;
@@ -34,6 +44,9 @@ public class Trip implements Parcelable {
     private String expire_date;
     private String created_at;
     private String updated_at;
+
+    private boolean is_paid;
+
     private ArrayList<Company> company;
 //    private String driver = null;
 
@@ -45,9 +58,11 @@ public class Trip implements Parcelable {
         pickup_area = parcel.readString();
         pickup_latitude = parcel.readString();
         pickup_longitude = parcel.readString();
+        pickup_location = parcel.readString();
         delivery_area = parcel.readString();
         delivery_latitude = parcel.readString();
         delivery_longitude = parcel.readString();
+        delivery_location = parcel.readString();
         driver_id = parcel.readInt();
         current_location = parcel.readString();
         current_latitude = parcel.readString();
@@ -59,6 +74,8 @@ public class Trip implements Parcelable {
         product_detail = parcel.readString();
         distance = parcel.readString();
         status = parcel.readString();
+        otp = parcel.readInt();
+        otp_expire_at = parcel.readString();
         reschedule_date = parcel.readString();
         reschedule_start_time = parcel.readString();
         reschedule_end_time = parcel.readString();
@@ -66,6 +83,7 @@ public class Trip implements Parcelable {
         expire_date = parcel.readString();
         created_at = parcel.readString();
         updated_at = parcel.readString();
+        is_paid = parcel.readInt() == 1;
         company = parcel.createTypedArrayList(Company.CREATOR);
 
 //        driver = parcel.readString();
@@ -290,6 +308,46 @@ public class Trip implements Parcelable {
         this.updated_at = updated_at;
     }
 
+    public String getPickup_location() {
+        return pickup_location;
+    }
+
+    public void setPickup_location(String pickup_location) {
+        this.pickup_location = pickup_location;
+    }
+
+    public String getDelivery_location() {
+        return delivery_location;
+    }
+
+    public void setDelivery_location(String delivery_location) {
+        this.delivery_location = delivery_location;
+    }
+
+    public int getOtp() {
+        return otp;
+    }
+
+    public void setOtp(int otp) {
+        this.otp = otp;
+    }
+
+    public String getOtp_expire_at() {
+        return otp_expire_at;
+    }
+
+    public void setOtp_expire_at(String otp_expire_at) {
+        this.otp_expire_at = otp_expire_at;
+    }
+
+    public boolean isIs_paid() {
+        return is_paid;
+    }
+
+    public void setIs_paid(boolean is_paid) {
+        this.is_paid = is_paid;
+    }
+
     public ArrayList<Company> getCompanies() {
         return company;
     }
@@ -319,9 +377,11 @@ public class Trip implements Parcelable {
         dest.writeString(pickup_area);
         dest.writeString(pickup_latitude);
         dest.writeString(pickup_longitude);
+        dest.writeString(pickup_location);
         dest.writeString(delivery_area);
         dest.writeString(delivery_latitude);
         dest.writeString(delivery_longitude);
+        dest.writeString(delivery_location);
         dest.writeInt(driver_id);
         dest.writeString(current_location);
         dest.writeString(current_latitude);
@@ -333,6 +393,8 @@ public class Trip implements Parcelable {
         dest.writeString(product_detail);
         dest.writeString(distance);
         dest.writeString(status);
+        dest.writeInt(otp);
+        dest.writeString(otp_expire_at);
         dest.writeString(reschedule_date);
         dest.writeString(reschedule_start_time);
         dest.writeString(reschedule_end_time);
@@ -340,6 +402,7 @@ public class Trip implements Parcelable {
         dest.writeString(expire_date);
         dest.writeString(created_at);
         dest.writeString(updated_at);
+        dest.writeInt(is_paid ? 1: 0);
         dest.writeTypedList(company);
 //        dest.writeString(driver);
     }

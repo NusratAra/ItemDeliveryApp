@@ -14,7 +14,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/poppins_regular"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="@string/all_text"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
@@ -51,12 +53,14 @@
                 android:id="@+id/tik_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:src="@drawable/filter_tik"
-                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/view_all"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -83,7 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/poppins_regular"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="@string/ready_to_delivery"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
@@ -98,12 +103,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:src="@drawable/filter_tik"
-                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/view_ready_delivery"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -130,7 +137,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/poppins_regular"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="@string/in_delivery"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
@@ -145,12 +153,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:src="@drawable/filter_tik"
-                android:paddingRight="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/view_in_delivery"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

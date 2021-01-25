@@ -32,7 +32,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
                 android:fontFamily="@font/poppins_regular"
@@ -226,8 +226,8 @@
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center_vertical"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="@string/pick_up_point"
@@ -243,7 +243,8 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:src="@drawable/item_icon1"
-                android:tint="@color/colorWhite" />
+                app:tint="@color/colorWhite"
+                tools:ignore="ContentDescription" />
 
         </FrameLayout>
 
@@ -278,12 +279,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_green_layout_phone"
                 android:gravity="center"
                 android:padding="10dp"
-                android:src="@drawable/phone_icon" />
+                android:src="@drawable/phone_icon"
+                tools:ignore="ContentDescription" />
 
 
             <ImageButton
@@ -291,12 +293,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_green_layout_direct"
                 android:gravity="center"
                 android:padding="10dp"
-                android:src="@drawable/procceed_icon" />
+                android:src="@drawable/procceed_icon"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
 
         <View
@@ -322,7 +325,8 @@
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center_vertical"
-                android:paddingLeft="30dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="@string/delivery_point"
@@ -335,9 +339,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:src="@drawable/item_icon2"
-                android:tint="@color/colorWhite" />
+                tools:ignore="ContentDescription"
+                app:tint="@color/colorWhite" />
 
         </FrameLayout>
 
@@ -391,12 +397,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_green_layout_phone"
                 android:gravity="center"
                 android:padding="10dp"
-                android:src="@drawable/phone_icon" />
+                android:src="@drawable/phone_icon"
+                tools:ignore="ContentDescription" />
 
 
             <ImageButton
@@ -404,12 +411,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_green_layout_direct"
                 android:gravity="center"
                 android:padding="10dp"
-                android:src="@drawable/procceed_icon" />
+                android:src="@drawable/procceed_icon"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
 
 

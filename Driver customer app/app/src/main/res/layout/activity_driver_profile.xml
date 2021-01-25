@@ -7,17 +7,14 @@
     android:layout_height="match_parent"
     android:id="@+id/mainLayout">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:fancy="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorGray">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/colorGray">
 
             <androidx.appcompat.widget.Toolbar
@@ -51,18 +48,19 @@
                     android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:src="@drawable/man1"
-                    fancy:civ_border_color="@android:color/transparent"
-                    fancy:civ_border_width="0dp" />
+                    app:civ_border_color="@android:color/transparent"
+                    app:civ_border_width="0dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/btn_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="16dp"
+                    android:layout_alignTop="@+id/driver_profile_pic"
+                    android:layout_alignEnd="@+id/upper_layout"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="0dp"
                     android:layout_marginRight="16dp"
-                    android:layout_toRightOf="@id/driver_profile_pic"
                     android:thumb="@drawable/profile_switch_thumb_custom"
                     app:track="@drawable/profile_switch_track_custom" />
 
@@ -72,26 +70,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/btn_switch"
-                    android:layout_alignParentRight="true"
-                    android:gravity="right"
+                    android:layout_alignEnd="@+id/upper_layout"
                     android:layout_marginTop="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:layout_toRightOf="@id/driver_profile_pic"
+                    android:layout_marginEnd="0dp"
                     android:fontFamily="@font/poppins_regular"
+                    android:gravity="start"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="@string/offline_text"
                     android:textColor="@color/colorBlackLight"
-                    android:text="offline"
                     android:textSize="14sp" />
+
                 <TextView
                     android:id="@+id/driver_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/driver_profile_pic"
+                    android:layout_alignStart="@+id/driver_profile_pic"
+                    android:layout_marginStart="0dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/driver_name_text"
@@ -126,13 +125,15 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/trip_history_b" />
+                                android:src="@drawable/trip_history_b"
+                                tools:ignore="ContentDescription" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/trip_history" />
+                                android:src="@drawable/trip_history"
+                                tools:ignore="ContentDescription" />
 
                         </FrameLayout>
 
@@ -144,7 +145,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:text="@string/trip_history_text"
                             android:textColor="@color/colorBlackLight"
                             android:textSize="16sp" />
@@ -167,13 +168,15 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/payment_history_b" />
+                                android:src="@drawable/payment_history_b"
+                                tools:ignore="ContentDescription" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/payment_history" />
+                                android:src="@drawable/payment_history"
+                                tools:ignore="ContentDescription" />
 
                         </FrameLayout>
 
@@ -185,7 +188,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:text="@string/payment_history_text"
                             android:textColor="@color/colorBlackLight"
                             android:textSize="16sp" />
@@ -208,13 +211,15 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/edit_profile_b" />
+                                android:src="@drawable/edit_profile_b"
+                                tools:ignore="ContentDescription" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/edit_profile" />
+                                android:src="@drawable/edit_profile"
+                                tools:ignore="ContentDescription" />
 
                         </FrameLayout>
 
@@ -226,7 +231,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:text="@string/edit_profile_text"
                             android:textColor="@color/colorBlackLight"
                             android:textSize="16sp" />
@@ -249,13 +254,15 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/change_number_b" />
+                                android:src="@drawable/change_number_b"
+                                tools:ignore="ContentDescription" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/change_number" />
+                                android:src="@drawable/change_number"
+                                tools:ignore="ContentDescription" />
 
                         </FrameLayout>
 
@@ -266,7 +273,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:text="@string/change_number_text"
                             android:textColor="@color/colorBlackLight"
                             android:textSize="16sp" />
@@ -289,13 +296,15 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/change_pass_b" />
+                                android:src="@drawable/change_pass_b"
+                                tools:ignore="ContentDescription" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/change_pass" />
+                                android:src="@drawable/change_pass"
+                                tools:ignore="ContentDescription" />
 
                         </FrameLayout>
 
@@ -306,7 +315,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:text="@string/change_pass_text"
                             android:textColor="@color/colorBlackLight"
                             android:textSize="16sp" />
@@ -328,13 +337,15 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/switch2arabic_b" />
+                                android:src="@drawable/switch2arabic_b"
+                                tools:ignore="ContentDescription" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/switch2arabic" />
+                                android:src="@drawable/switch2arabic"
+                                tools:ignore="ContentDescription" />
 
                         </FrameLayout>
 
@@ -346,7 +357,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:gravity="left"
+                            android:gravity="start"
                             android:text="@string/switch_to_arabic_text"
                             android:textColor="@color/colorBlackLight"
                             android:textSize="16sp" />
@@ -360,7 +371,6 @@
                     android:layout_height="64dp"
                     android:layout_below="@id/upper_layout"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/control_switch_background_border"
@@ -377,13 +387,15 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:src="@drawable/logout_b" />
+                            android:src="@drawable/logout_b"
+                            tools:ignore="ContentDescription" />
 
                         <ImageView
                             android:layout_width="14dp"
                             android:layout_height="22dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/logout" />
+                            android:src="@drawable/logout"
+                            tools:ignore="ContentDescription" />
 
                     </FrameLayout>
 
@@ -394,7 +406,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:fontFamily="@font/poppins_regular"
-                        android:gravity="left"
+                        android:gravity="start"
                         android:text="@string/logout_text"
                         android:textColor="@color/colorBlackLight"
                         android:textSize="16sp" />

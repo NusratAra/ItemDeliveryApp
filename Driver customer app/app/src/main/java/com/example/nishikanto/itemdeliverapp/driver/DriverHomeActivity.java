@@ -1,11 +1,11 @@
 package com.example.nishikanto.itemdeliverapp.driver;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +44,7 @@ import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
 import com.example.nishikanto.itemdeliverapp.services.TripAuthenticationService;
 import com.example.nishikanto.itemdeliverapp.utils.BaseUrlUtils;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
+import com.example.nishikanto.itemdeliverapp.utils.LocaleHelper;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.GsonBuilder;
 import com.yanzhenjie.permission.AndPermission;
@@ -92,8 +94,6 @@ public class DriverHomeActivity extends AppCompatActivity {
     private ArrayList<Trip> tripArrayList;
 
 
-
-
     // The BroadcastReceiver used to listen from broadcasts from the service.
     private MyReceiver myReceiver;
 
@@ -123,18 +123,16 @@ public class DriverHomeActivity extends AppCompatActivity {
         }
     };
 
-
-
-
-
-
-
+    private static int DRIVER_PROFILE = 101;
 
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        languageSwitch();
+
         setContentView(R.layout.activity_driver_home);
         dataUtils = new DataUtils(getApplicationContext());
         tripArrayList = new ArrayList<>();
@@ -155,7 +153,7 @@ public class DriverHomeActivity extends AppCompatActivity {
         getDriverProfileCall();
         allTripCall();
 
-        if(tripArrayList != null){
+        if(tripArrayList != null && !tripArrayList.isEmpty()){
 
             layout.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
@@ -485,7 +483,7 @@ public class DriverHomeActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent i=new Intent(getBaseContext(), DriverProfileActivity.class);
-            startActivity(i);
+            startActivityForResult(i, DRIVER_PROFILE);
         }
     };
 
@@ -497,25 +495,20 @@ public class DriverHomeActivity extends AppCompatActivity {
     };
 
 
-    private void languageSwitch() {
-        if(dataUtils.getStr("lang").equals("en")){
-            setLocal("en");
-            recreate();
-        } else if(dataUtils.getStr("lang").equals("ar")){
-            setLocal("ar");
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: "+ requestCode+"+"+resultCode);
+        if(requestCode == DRIVER_PROFILE && resultCode == Activity.RESULT_OK){
             recreate();
         }
     }
 
-    private void setLocal(String lang) {
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
-
-        Configuration configuration = new Configuration();
-        configuration.locale = locale;
-        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
-        dataUtils.setStr("lang", lang);
-
+    private void languageSwitch() {
+        if(!LocaleHelper.getLanguage(this).equals(Locale.getDefault().getLanguage())){
+            LocaleHelper.setLocale(this, LocaleHelper.getLanguage(this));
+            //recreate();
+        }
     }
 
 

@@ -1,9 +1,9 @@
 package com.example.nishikanto.itemdeliverapp.driver.profile;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,8 +42,7 @@ import com.example.nishikanto.itemdeliverapp.services.NoConnectivityException;
 import com.example.nishikanto.itemdeliverapp.services.RetrofitInstance;
 import com.example.nishikanto.itemdeliverapp.utils.BaseUrlUtils;
 import com.example.nishikanto.itemdeliverapp.utils.DataUtils;
-
-import java.util.Locale;
+import com.example.nishikanto.itemdeliverapp.utils.LocaleHelper;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import jp.wasabeef.blurry.Blurry;
@@ -52,6 +52,8 @@ import retrofit2.Response;
 
 public class DriverProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = DriverProfileActivity.class.getSimpleName();
+    private static int PROFILE_CODE = 23;
+
 
     private LinearLayout editProfile;
     private LinearLayout tripHistoryLayout;
@@ -87,13 +89,13 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
             driverName.setText(user.getUsername());
             if(user.getProfile_or_logo() != null){
                 Log.d(TAG, "ProfilePicUrl: "+ user.getProfile_or_logo());
-               setImageToView(BaseUrlUtils.BASE_URL+user.getProfile_or_logo());
+                setImageToView(BaseUrlUtils.BASE_URL+user.getProfile_or_logo());
             }
         } else {
             driverName.setText(getString(R.string.driver_name_text));
         }
 
-        //setOnlineOffline();
+        setOnlineOffline();
 
 
         editProfile.setOnClickListener(this);
@@ -125,6 +127,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isTouched) {
                     isTouched = false;
+                    Log.d(TAG, "onChecked: "+ isChecked);
                     if(isChecked){
                         switchState.setText(R.string.online);
                         Log.d(TAG, "onCheckedChanged: Online ");
@@ -304,6 +307,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
 
@@ -318,7 +322,7 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.edit_profile_layout:
                 intent =new Intent(getBaseContext(), EditProfileActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, PROFILE_CODE);
                 break;
             case R.id.change_number:
                 intent =new Intent(getBaseContext(), ChangePhoneNumberActivity.class);
@@ -338,23 +342,36 @@ public class DriverProfileActivity extends AppCompatActivity implements View.OnC
     }
 
     private void languageSwitch() {
-        if(Locale.getDefault().getLanguage().equals("en")){
-            setLocal("ar");
-            recreate();
-        } else if(Locale.getDefault().getLanguage().equals("ar")){
-            setLocal("en");
-            recreate();
+        if(LocaleHelper.getLanguage(this).equals("en")){
+            LocaleHelper.setLocale(this, "ar");
+        } else{
+            LocaleHelper.setLocale(this, "en");
+        }
+        recreate();
+        dataUtils.setStr("isLanguageChanged", "1");
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: "+ requestCode+"+"+resultCode);
+        if(requestCode == PROFILE_CODE || resultCode == Activity.RESULT_OK){
+            if (data != null) {
+                Log.d(TAG, "onActivityResultData: "+ data.getStringExtra("image_uri"));
+                setImageToView(data.getStringExtra("image_uri"));
+            }
         }
     }
 
-    private void setLocal(String lang) {
-        Locale locale = new Locale(lang);
-        Locale.setDefault(locale);
+    @Override
+    public void onBackPressed() {
+        if(dataUtils.getStr("isLanguageChanged").equals("1")){
+            dataUtils.setStr("isLanguageChanged", "0");
+            Intent resultIntent = new Intent();
+            setResult(Activity.RESULT_OK, resultIntent);
+        }
 
-        Configuration configuration = new Configuration();
-        configuration.locale = locale;
-        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
-        dataUtils.setStr("lang", lang);
-
+        super.onBackPressed();
     }
 }

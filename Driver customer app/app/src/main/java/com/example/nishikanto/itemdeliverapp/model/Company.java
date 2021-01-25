@@ -14,6 +14,10 @@ public class Company implements Parcelable {
     private boolean terms_conditions;
     private boolean is_logged_in;
     private String last_logged_in_at;
+
+    private String first_name;
+    private String last_name;
+
     private boolean is_staff;
     private boolean is_active;
     private String role;
@@ -23,6 +27,9 @@ public class Company implements Parcelable {
     private String postal_code;
     private String address;
     private String company_reg_no;
+
+    private float payment_limit;
+
     private String date_joined;
     private String updated_at;
     private String profile_or_logo = null;
@@ -35,6 +42,8 @@ public class Company implements Parcelable {
         terms_conditions = parcel.readInt() == 1;
         is_logged_in = parcel.readInt() == 1;
         last_logged_in_at = parcel.readString();
+        first_name = parcel.readString();
+        last_name = parcel.readString();
         is_staff = parcel.readInt() == 1;
         is_active = parcel.readInt() == 1;
         role = parcel.readString();
@@ -44,6 +53,7 @@ public class Company implements Parcelable {
         postal_code = parcel.readString();
         address = parcel.readString();
         company_reg_no = parcel.readString();
+        payment_limit = parcel.readFloat();
         date_joined = parcel.readString();
         updated_at = parcel.readString();
         profile_or_logo = parcel.readString();
@@ -194,6 +204,30 @@ public class Company implements Parcelable {
         this.profile_or_logo = profile_or_logo;
     }
 
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public float getPayment_limit() {
+        return payment_limit;
+    }
+
+    public void setPayment_limit(float payment_limit) {
+        this.payment_limit = payment_limit;
+    }
+
     @Override
     public int describeContents() {
         return hashCode();
@@ -209,6 +243,8 @@ public class Company implements Parcelable {
         dest.writeInt(terms_conditions ? 1 : 0);
         dest.writeInt(is_logged_in ? 1 : 0);
         dest.writeString(last_logged_in_at);
+        dest.writeString(first_name);
+        dest.writeString(last_name);
         dest.writeInt(is_staff ? 1 : 0);
         dest.writeInt(is_active ? 1 : 0);
         dest.writeString(role);
@@ -218,6 +254,7 @@ public class Company implements Parcelable {
         dest.writeString(postal_code);
         dest.writeString(address);
         dest.writeString(company_reg_no);
+        dest.writeFloat(payment_limit);
         dest.writeString(date_joined);
         dest.writeString(updated_at);
         dest.writeString(profile_or_logo);

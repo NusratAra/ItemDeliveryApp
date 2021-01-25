@@ -116,8 +116,8 @@
     <string name="all_text">الكل</string>
     <string name="unpaid_text">غير مدفوع</string>
 
-    <string name="online">Online</string>
-    <string name="offline">Offline</string>
+    <string name="online">عبر الانترنت</string>
+    <string name="offline">غير متصل على الانترنت</string>
 
     <string name="name1">Rakkah, Al khabar 31952</string>
     <string name="name2">Al Muntazah, khamis Mushait</string>
@@ -190,7 +190,7 @@
     <string name="default_word_count">\0/140</string>
 
     <string name="word_count">\/140</string>
-    <string name="name">Name: </string>
+    <string name="name">اسم:</string>
 
 
     <string name="ready_for_delivery_line1">قسم "جاهز للتسليم"</string>
@@ -216,7 +216,7 @@
 
     <string name="ex_name">Ahmed Hassan</string>
     <string name="ex_email">example@gmail.com</string>
-    <string name="ex_city">Riyadh</string>
+    <string name="ex_city">مدينة الرياض</string>
     <string name="ex_city_code">12233</string>
     <string name="ex_address">Granada Center, Olaya Street.</string>
     <string name="ex_code">845673495687544</string>
@@ -248,6 +248,7 @@
     <string name="permission_denied">طلب الاذن مرفوض</string>
     <string name="city_text">مدينة</string>
     <string name="invalid_email">بريد إلكتروني خاطئ</string>
+    <string name="offline_text">غير متصل على الانترنت</string>
 
 
 </resources>

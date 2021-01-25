@@ -23,7 +23,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/success_2" />
+            android:src="@drawable/success_2"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/poppins_regular"
-            android:gravity="left"
+            android:gravity="start"
             android:text="@string/rescheduled"
             android:textColor="@color/colorBlackLight"
             android:textSize="16sp" />
